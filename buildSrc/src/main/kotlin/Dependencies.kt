@@ -21,10 +21,12 @@ object AndroidLibraries {
 object KotlinLibraries {
     object Versions {
         const val kotlin = "1.4.21"
-        const val jvmTarget = "1.8"
+        const val coroutines = "1.4.2"
     }
 
     const val kotlinStdLibrary = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
+    const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
+    const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
 }
 
 object NetworkLibraries {
