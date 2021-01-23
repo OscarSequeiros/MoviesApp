@@ -41,6 +41,11 @@ dependencies {
     implementation AndroidLibraries.material
     implementation AndroidLibraries.constraintLayout
 
+    implementation NetworkLibraries.ktorAndroid
+    implementation NetworkLibraries.ktorCio
+    implementation NetworkLibraries.ktorGson
+    implementation NetworkLibraries.ktorLogging
+
     testImplementation TestLibraries.jUnit
 
     androidTestImplementation TestAndroidLibraries.androidJUnit

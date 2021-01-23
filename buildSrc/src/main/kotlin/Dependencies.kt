@@ -27,6 +27,17 @@ object KotlinLibraries {
     const val kotlinStdLibrary = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
 }
 
+object NetworkLibraries {
+    object Versions {
+        const val ktor = "1.5.0"
+    }
+
+    const val ktorAndroid = "io.ktor:ktor-client-android:${Versions.ktor}"
+    const val ktorCio = "io.ktor:ktor-client-cio:${Versions.ktor}"
+    const val ktorGson = "io.ktor:ktor-client-gson:${Versions.ktor}"
+    const val ktorLogging = "io.ktor:ktor-client-logging-jvm:${Versions.ktor}"
+}
+
 object TestLibraries {
     object Versions {
         const val jUnit = "4.13.1"
