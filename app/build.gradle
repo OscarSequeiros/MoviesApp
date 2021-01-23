@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -47,6 +48,11 @@ dependencies {
     implementation NetworkLibraries.ktorCio
     implementation NetworkLibraries.ktorGson
     implementation NetworkLibraries.ktorLogging
+
+    implementation PersistenceLibraries.room
+    implementation PersistenceLibraries.roomKtx
+
+    kapt PersistenceLibraries.kaptRoomCompiler
 
     testImplementation TestLibraries.jUnit
 

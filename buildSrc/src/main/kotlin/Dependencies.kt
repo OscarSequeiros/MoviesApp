@@ -40,6 +40,16 @@ object NetworkLibraries {
     const val ktorLogging = "io.ktor:ktor-client-logging-jvm:${Versions.ktor}"
 }
 
+object PersistenceLibraries {
+    object Versions {
+        const val room = "2.2.6"
+    }
+
+    const val room = "androidx.room:room-runtime:${Versions.room}"
+    const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
+    const val kaptRoomCompiler = "androidx.room:room-compiler:${Versions.room}"
+}
+
 object TestLibraries {
     object Versions {
         const val jUnit = "4.13.1"
