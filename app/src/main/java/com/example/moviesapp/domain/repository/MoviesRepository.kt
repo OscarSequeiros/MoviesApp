@@ -1,10 +1,11 @@
 package com.example.moviesapp.domain.repository
 
 import com.example.moviesapp.domain.model.Movie
+import kotlinx.coroutines.flow.Flow
 
 interface MoviesRepository {
 
-    fun getMovieById(id: Long): Movie
+    suspend fun getMovieById(id: Long): Movie
 
-    fun getPopularMovies(): List<Movie>
+    fun getPopularMovies(): Flow<List<Movie>>
 }
