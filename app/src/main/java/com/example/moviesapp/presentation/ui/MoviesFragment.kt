@@ -25,8 +25,8 @@ class MoviesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
     }
 
-    override fun onDestroy() {
+    override fun onDestroyView() {
         binding = null
-        super.onDestroy()
+        super.onDestroyView()
     }
 }
