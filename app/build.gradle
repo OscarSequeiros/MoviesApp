@@ -58,6 +58,9 @@ dependencies {
     implementation PersistenceLibraries.room
     implementation PersistenceLibraries.roomKtx
 
+    implementation NavigationLibraries.navigationFragment
+    implementation NavigationLibraries.navigationUi
+
     kapt PersistenceLibraries.kaptRoomCompiler
 
     testImplementation TestLibraries.jUnit

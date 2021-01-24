@@ -64,6 +64,15 @@ object PersistenceLibraries {
     const val kaptRoomCompiler = "androidx.room:room-compiler:${Versions.room}"
 }
 
+object NavigationLibraries {
+    object Versions {
+        const val nav = "2.3.2"
+    }
+
+    const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.nav}"
+    const val navigationUi = "androidx.navigation:navigation-ui-ktx:$${Versions.nav}"
+}
+
 object TestLibraries {
     object Versions {
         const val jUnit = "4.13.1"
