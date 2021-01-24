@@ -12,7 +12,7 @@ interface MovieDao {
     @Query("SELECT * FROM LocalMovie")
     fun getAllPopulars(): Flow<List<LocalMovie>>
 
-    @Query("SELECT * FROM LocalMovie WHERE id = id")
+    @Query("SELECT * FROM LocalMovie WHERE id = :id")
     suspend fun getById(id: Long): LocalMovie
 
     @Insert
