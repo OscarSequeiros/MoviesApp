@@ -9,6 +9,6 @@ data class LocalMovie(
     @PrimaryKey val id: Long,
     @ColumnInfo(name = "title") val title: String,
     @ColumnInfo(name = "overview") val overview: String,
-    @ColumnInfo(name = "posterUrl") val String: String,
     @ColumnInfo(name = "isOnlyForAdults") val isOnlyForAdults: Boolean,
+    @ColumnInfo(name = "posterUrl") val posterUrl: String?,
 )
