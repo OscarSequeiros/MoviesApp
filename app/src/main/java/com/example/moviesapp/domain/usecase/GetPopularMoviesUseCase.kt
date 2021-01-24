@@ -4,7 +4,7 @@ import com.example.moviesapp.domain.model.Movie
 import com.example.moviesapp.domain.repository.MoviesRepository
 import kotlinx.coroutines.flow.Flow
 
-class GetPopularMovies(private val repository: MoviesRepository) {
+class GetPopularMoviesUseCase(private val repository: MoviesRepository) {
 
     operator fun invoke(): Flow<List<Movie>> = repository.getPopularMovies()
 }
