@@ -45,6 +45,11 @@ dependencies {
     implementation AndroidLibraries.constraintLayout
     implementation AndroidLibraries.lifecycleViewModel
 
+    implementation DILibraries.hilt
+    implementation DILibraries.lifecycle
+    kapt DILibraries.kaptHilt
+    kapt DILibraries.kaptLifecycle
+
     implementation NetworkLibraries.ktorAndroid
     implementation NetworkLibraries.ktorCio
     implementation NetworkLibraries.ktorGson

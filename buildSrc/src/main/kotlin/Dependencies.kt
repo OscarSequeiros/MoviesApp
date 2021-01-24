@@ -31,6 +31,18 @@ object KotlinLibraries {
     const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
 }
 
+object DILibraries {
+    object Versions {
+        const val hilt = "2.28-alpha"
+        const val lifecycle = "1.0.0-alpha01"
+    }
+
+    const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
+    const val lifecycle = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.lifecycle}"
+    const val kaptHilt =  "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
+    const val kaptLifecycle =  "androidx.hilt:hilt-compiler:${Versions.lifecycle}"
+}
+
 object NetworkLibraries {
     object Versions {
         const val ktor = "1.5.0"
