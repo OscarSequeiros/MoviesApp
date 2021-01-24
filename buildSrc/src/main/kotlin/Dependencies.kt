@@ -10,12 +10,14 @@ object AndroidLibraries {
         const val appCompat = "1.2.0"
         const val material = "1.2.1"
         const val constraintLayout = "2.0.4"
+        const val lifecycleViewModel = "2.2.0"
     }
 
     const val core = "androidx.core:core-ktx:${Versions.core}"
     const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
     const val material = "com.google.android.material:material:${Versions.material}"
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+    const val lifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycleViewModel}"
 }
 
 object KotlinLibraries {

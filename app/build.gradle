@@ -43,6 +43,7 @@ dependencies {
     implementation AndroidLibraries.appCompat
     implementation AndroidLibraries.material
     implementation AndroidLibraries.constraintLayout
+    implementation AndroidLibraries.lifecycleViewModel
 
     implementation NetworkLibraries.ktorAndroid
     implementation NetworkLibraries.ktorCio
