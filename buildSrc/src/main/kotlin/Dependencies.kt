@@ -70,7 +70,7 @@ object NavigationLibraries {
     }
 
     const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.nav}"
-    const val navigationUi = "androidx.navigation:navigation-ui-ktx:$${Versions.nav}"
+    const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.nav}"
 }
 
 object TestLibraries {
