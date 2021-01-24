@@ -4,6 +4,8 @@ import com.example.moviesapp.presentation.model.PresentationMovie
 
 sealed class MoviesState {
 
+    object IdleState : MoviesState()
+
     object LoadingState : MoviesState()
 
     object EmptyMoviesState : MoviesState()
