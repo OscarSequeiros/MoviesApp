@@ -24,6 +24,8 @@ android {
                               "room.schemaLocation": "$projectDir/schemas".toString()]
             }
         }
+
+        buildConfigField("String","APP_KEY", API_KEY)
     }
 
     buildTypes {

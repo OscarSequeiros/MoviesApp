@@ -1,5 +1,6 @@
 package com.example.moviesapp.data.remote
 
+import com.example.moviesapp.BuildConfig
 import com.example.moviesapp.data.remote.model.RemoteMovie
 import com.example.moviesapp.data.remote.model.RemoteMoviesResponse
 import io.ktor.client.*
@@ -37,7 +38,7 @@ class MoviesRemoteSource @Inject constructor() {
 
     suspend fun getPopularMovies(): List<RemoteMovie> {
         val response: RemoteMoviesResponse = client.get("movie/popular") {
-            parameter("api_key", API_KEY)
+            parameter("api_key", BuildConfig.APP_KEY)
         }
 
         return response
@@ -46,7 +47,6 @@ class MoviesRemoteSource @Inject constructor() {
     }
 
     companion object {
-        const val API_KEY = "61fea730d72afafce9650a937f4f8575"
         const val BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w400"
     }
 }
