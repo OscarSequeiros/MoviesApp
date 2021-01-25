@@ -24,9 +24,12 @@ class MoviesViewModel @ViewModelInject constructor(
         getMoviesUseCase()
             .map { movies -> mapper.toPresentation(movies) }
             .map { movies -> movies.defineState() }
-            .onEach { state -> _stateFlow.value = state }
             .onStart { emit(LoadingState) }
-            .catch { emit(FailureState) }
+            .catch { error ->
+                error.printStackTrace()
+                emit(FailureState)
+            }
+            .onEach { state -> _stateFlow.value = state }
             .launchIn(viewModelScope)
     }
 

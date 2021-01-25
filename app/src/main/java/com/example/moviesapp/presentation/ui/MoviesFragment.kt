@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -35,24 +34,48 @@ class MoviesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        /*viewModel.stateFlow.observeOn()
-            //.onEach { state -> render(state) }
-            .collect { state -> render(state) }
-            .launchIn(lifecycleScope)*/
+        observeStates()
+    }
+
+    private fun observeStates() {
         lifecycleScope.launch {
-            viewModel.stateFlow
+            viewModel
+                .stateFlow
                 .collect { state -> render(state) }
         }
     }
 
     private fun render(state: MoviesState) {
         when(state) {
-            is IdleState -> Toast.makeText(context, "idle", Toast.LENGTH_SHORT).show()
-            is FailureState -> Toast.makeText(context, "failure", Toast.LENGTH_SHORT).show()
-            is LoadingState -> Toast.makeText(context, "loading", Toast.LENGTH_SHORT).show()
-            is EmptyMoviesState -> Toast.makeText(context, "empty", Toast.LENGTH_SHORT).show()
-            is FilledMoviesState -> Toast.makeText(context, "filled", Toast.LENGTH_SHORT).show()
+            is IdleState -> showIdleState()
+            is LoadingState -> showLoading()
+            is FailureState -> showFailure()
+            is EmptyMoviesState -> showEmptyMovies()
+            is FilledMoviesState -> showMovies()
         }
+    }
+
+    private fun showIdleState() {
+
+    }
+
+    private fun showLoading() {
+        binding?.progressLoading?.visibility = View.VISIBLE
+    }
+
+    private fun showFailure() {
+        binding?.progressLoading?.visibility = View.GONE
+        binding?.imageFailure?.visibility = View.VISIBLE
+    }
+
+    private fun showEmptyMovies() {
+        binding?.progressLoading?.visibility = View.GONE
+        binding?.imageEmpty?.visibility = View.VISIBLE
+    }
+
+    private fun showMovies() {
+        binding?.progressLoading?.visibility = View.GONE
+        binding?.recyclerMovies?.visibility = View.VISIBLE
     }
 
     override fun onDestroyView() {
