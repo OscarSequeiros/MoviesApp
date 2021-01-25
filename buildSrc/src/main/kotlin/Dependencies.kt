@@ -48,12 +48,14 @@ object DILibraries {
 object NetworkLibraries {
     object Versions {
         const val ktor = "1.5.0"
+        const val coil = "1.1.1"
     }
 
     const val ktorAndroid = "io.ktor:ktor-client-android:${Versions.ktor}"
     const val ktorCio = "io.ktor:ktor-client-cio:${Versions.ktor}"
     const val ktorGson = "io.ktor:ktor-client-gson:${Versions.ktor}"
     const val ktorLogging = "io.ktor:ktor-client-logging-jvm:${Versions.ktor}"
+    const val coil = "io.coil-kt:coil:${Versions.coil}"
 }
 
 object PersistenceLibraries {

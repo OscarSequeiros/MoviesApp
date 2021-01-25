@@ -65,6 +65,7 @@ dependencies {
     implementation NetworkLibraries.ktorCio
     implementation NetworkLibraries.ktorGson
     implementation NetworkLibraries.ktorLogging
+    implementation NetworkLibraries.coil
 
     implementation PersistenceLibraries.room
     implementation PersistenceLibraries.roomKtx
