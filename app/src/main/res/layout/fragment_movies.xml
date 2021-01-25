@@ -10,6 +10,8 @@
         android:id="@+id/recycler_movies"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingBottom="30dp"
         android:visibility="gone"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
