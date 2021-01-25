@@ -28,7 +28,7 @@ class DataMovieMapper @Inject constructor() {
     private fun toDomain(movie: RemoteMovie): LocalMovie {
         return LocalMovie(
             id = movie.id,
-            title = movie.original_title,
+            title = movie.title,
             overview = movie.overview,
             posterUrl = movie.poster_path,
             isOnlyForAdults = movie.adult
