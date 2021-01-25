@@ -2,8 +2,11 @@ package com.example.moviesapp.data.local
 
 import com.example.moviesapp.data.local.model.LocalMovie
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class MoviesLocalSource(private val dataBase: MoviesAppDataBase) {
+class MoviesLocalSource @Inject constructor(
+    private val dataBase: MoviesAppDataBase
+) {
 
     fun getAllMovies(): Flow<List<LocalMovie>> = dataBase.movieDao().getAllPopulars()
 

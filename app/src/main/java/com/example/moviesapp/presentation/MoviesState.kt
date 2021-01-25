@@ -10,5 +10,5 @@ sealed class MoviesState {
 
     object EmptyMoviesState : MoviesState()
 
-    data class FillMoviesState(val movies: List<PresentationMovie>) : MoviesState()
+    data class FilledMoviesState(val movies: List<PresentationMovie>) : MoviesState()
 }

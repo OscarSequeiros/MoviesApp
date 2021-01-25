@@ -2,8 +2,9 @@ package com.example.moviesapp.presentation.mapper
 
 import com.example.moviesapp.domain.model.Movie
 import com.example.moviesapp.presentation.model.PresentationMovie
+import javax.inject.Inject
 
-class PresentationMovieMapper {
+class PresentationMovieMapper @Inject constructor() {
 
     fun toPresentation(movies: List<Movie>): List<PresentationMovie> {
         return movies.map { movie -> toPresentation(movie) }

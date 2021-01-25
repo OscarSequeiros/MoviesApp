@@ -9,8 +9,9 @@ import io.ktor.client.features.json.*
 import io.ktor.client.features.logging.*
 import io.ktor.client.request.*
 import io.ktor.http.*
+import javax.inject.Inject
 
-class MoviesRemoteSource {
+class MoviesRemoteSource @Inject constructor() {
 
     private val client = HttpClient(CIO) {
         defaultRequest {
