@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">MoviesApp</string>
-    <string name="image_for_empty_movies">Imagen lista de películas vacías</string>
-    <string name="image_for_failure">Imagen de error</string>
+    <string name="empty_movies_image">Imagen lista de películas vacías</string>
+    <string name="error_image">Imagen de error</string>
+    <string name="movie_poster">Poster de la película</string>
+    <string name="rating">Rating</string>
 </resources>
