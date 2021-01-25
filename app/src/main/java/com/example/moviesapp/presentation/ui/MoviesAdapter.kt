@@ -4,6 +4,7 @@ import android.view.LayoutInflater.from
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.example.moviesapp.R
 import com.example.moviesapp.databinding.ItemMovieBinding
 import com.example.moviesapp.presentation.model.PresentationMovie
 import javax.inject.Inject
@@ -36,7 +37,9 @@ class MoviesAdapter @Inject constructor(
             textTitle.text = movie.title
             textOverview.text = movie.overview
             imagePoster.setOnClickListener { clickListener.invoke(movie.id) }
-            imagePoster.load(movie.posterUrl)
+            imagePoster.load(movie.posterUrl) {
+                placeholder(R.drawable.ic_cinema)
+            }
             textRating.text = movie.voteAverage
         }
     }
