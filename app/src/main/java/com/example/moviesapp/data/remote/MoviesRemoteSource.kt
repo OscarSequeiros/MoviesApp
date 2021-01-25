@@ -17,8 +17,8 @@ class MoviesRemoteSource @Inject constructor() {
         defaultRequest {
             url {
                 protocol = URLProtocol.HTTPS
-                host = "api.themoviedb.org/"
-                encodedPath = "/3/" + url.encodedPath
+                host = "api.themoviedb.org"
+                encodedPath = "/3" + url.encodedPath
             }
         }
         engine {
