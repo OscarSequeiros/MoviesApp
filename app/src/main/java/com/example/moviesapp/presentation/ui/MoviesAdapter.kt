@@ -37,6 +37,7 @@ class MoviesAdapter @Inject constructor(
             textOverview.text = movie.overview
             imagePoster.setOnClickListener { clickListener.invoke(movie.id) }
             imagePoster.load(movie.posterUrl)
+            textRating.text = movie.voteAverage
         }
     }
 }

@@ -17,7 +17,8 @@ class DataMovieMapper @Inject constructor() {
             title = movie.title,
             overview = movie.overview,
             posterUrl = movie.posterUrl,
-            isOnlyForAdults = movie.isOnlyForAdults
+            isOnlyForAdults = movie.isOnlyForAdults,
+            voteAverage = movie.voteAverage,
         )
     }
 
@@ -31,7 +32,8 @@ class DataMovieMapper @Inject constructor() {
             title = movie.title,
             overview = movie.overview,
             posterUrl = movie.poster_path,
-            isOnlyForAdults = movie.adult
+            isOnlyForAdults = movie.adult,
+            voteAverage = movie.vote_average,
         )
     }
 }

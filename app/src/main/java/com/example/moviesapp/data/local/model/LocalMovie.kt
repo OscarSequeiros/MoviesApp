@@ -11,4 +11,5 @@ data class LocalMovie(
     @ColumnInfo(name = "overview") val overview: String,
     @ColumnInfo(name = "isOnlyForAdults") val isOnlyForAdults: Boolean,
     @ColumnInfo(name = "posterUrl") val posterUrl: String?,
+    @ColumnInfo(name = "voteAverage") val voteAverage: Double,
 )
