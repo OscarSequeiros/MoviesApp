@@ -4,9 +4,10 @@
     <dimen name="vertical_item_margin">16dp</dimen>
     <dimen name="vertical_title_margin">16dp</dimen>
     <dimen name="title_size">18sp</dimen>
+    <dimen name="subtitle_size">16sp</dimen>
     <dimen name="overview_item_vertical_margin">12dp</dimen>
     <dimen name="rating_item_vertical_margin">8dp</dimen>
     <dimen name="rating_text_item_end_margin">8dp</dimen>
-    <dimen name="poster_start_margin">8dp</dimen>
+    <dimen name="poster_start_margin">16dp</dimen>
     <dimen name="poster_item_radius">8dp</dimen>
 </resources>

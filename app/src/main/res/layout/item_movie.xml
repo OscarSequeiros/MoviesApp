@@ -54,8 +54,8 @@
 
         <ImageView
             android:id="@+id/image_rating"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
             android:layout_marginTop="@dimen/rating_item_vertical_margin"
             android:contentDescription="@string/rating"
             app:layout_constraintEnd_toEndOf="parent"
@@ -69,7 +69,7 @@
             android:layout_marginEnd="@dimen/rating_text_item_end_margin"
             android:fontFamily="@font/lato_bold"
             android:textColor="@color/yellow"
-            android:textSize="@dimen/title_size"
+            android:textSize="@dimen/subtitle_size"
             app:layout_constraintBottom_toBottomOf="@+id/image_rating"
             app:layout_constraintEnd_toStartOf="@+id/image_rating"
             app:layout_constraintTop_toTopOf="@+id/image_rating"
