@@ -48,6 +48,7 @@ class MoviesFragment : Fragment() {
     private fun render(state: MoviesState) {
         when(state) {
             is IdleState -> Toast.makeText(context, "idle", Toast.LENGTH_SHORT).show()
+            is FailureState -> Toast.makeText(context, "failure", Toast.LENGTH_SHORT).show()
             is LoadingState -> Toast.makeText(context, "loading", Toast.LENGTH_SHORT).show()
             is EmptyMoviesState -> Toast.makeText(context, "empty", Toast.LENGTH_SHORT).show()
             is FilledMoviesState -> Toast.makeText(context, "filled", Toast.LENGTH_SHORT).show()

@@ -11,8 +11,8 @@ import com.example.moviesapp.presentation.model.PresentationMovie
 import kotlinx.coroutines.flow.*
 
 class MoviesViewModel @ViewModelInject constructor(
-        private val getMoviesUseCase: GetPopularMoviesUseCase,
-        private val mapper: PresentationMovieMapper
+    private val getMoviesUseCase: GetPopularMoviesUseCase,
+    private val mapper: PresentationMovieMapper
 ) : ViewModel() {
 
     private val _stateFlow = MutableStateFlow<MoviesState>(IdleState)
@@ -22,11 +22,12 @@ class MoviesViewModel @ViewModelInject constructor(
 
     init {
         getMoviesUseCase()
-                .map { movies -> mapper.toPresentation(movies) }
-                .map { movies -> movies.defineState() }
-                .onEach { state -> _stateFlow.value = state }
-                .onStart { emit(LoadingState) }
-                .launchIn(viewModelScope)
+            .map { movies -> mapper.toPresentation(movies) }
+            .map { movies -> movies.defineState() }
+            .onEach { state -> _stateFlow.value = state }
+            .onStart { emit(LoadingState) }
+            .catch { emit(FailureState) }
+            .launchIn(viewModelScope)
     }
 
     private fun List<PresentationMovie>.defineState(): MoviesState {
