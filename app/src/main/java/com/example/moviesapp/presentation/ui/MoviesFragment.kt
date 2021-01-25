@@ -35,12 +35,13 @@ class MoviesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        /*viewModel.stateFlow.observeOn()
-            //.onEach { state -> render(state) }
-            .collect { state -> render(state) }
-            .launchIn(lifecycleScope)*/
+        observeStates()
+    }
+
+    private fun observeStates() {
         lifecycleScope.launch {
-            viewModel.stateFlow
+            viewModel
+                .stateFlow
                 .collect { state -> render(state) }
         }
     }
