@@ -34,7 +34,7 @@ class MoviesAdapter @Inject constructor(
 
         fun bind(movie: PresentationMovie) = with(binding) {
             textTitle.text = movie.title
-            cardContainer.setOnClickListener { clickListener.invoke(movie.id) }
+            imagePoster.setOnClickListener { clickListener.invoke(movie.id) }
             imagePoster.load(movie.posterUrl)
         }
     }
