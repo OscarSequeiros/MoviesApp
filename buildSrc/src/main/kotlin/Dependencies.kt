@@ -41,6 +41,8 @@ object DILibraries {
     const val lifecycle = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.lifecycle}"
     const val kaptHilt =  "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
     const val kaptLifecycle =  "androidx.hilt:hilt-compiler:${Versions.lifecycle}"
+
+    const val gradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hilt}"
 }
 
 object NetworkLibraries {
