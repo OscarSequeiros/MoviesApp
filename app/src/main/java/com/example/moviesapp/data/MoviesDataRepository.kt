@@ -9,8 +9,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
+import javax.inject.Inject
 
-class MoviesDataRepository(
+class MoviesDataRepository @Inject constructor(
         private val remoteSource: MoviesRemoteSource,
         private val localSource: MoviesLocalSource,
         private val mapper: DataMovieMapper

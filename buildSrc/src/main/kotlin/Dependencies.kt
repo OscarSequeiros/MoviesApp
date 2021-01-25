@@ -41,6 +41,8 @@ object DILibraries {
     const val lifecycle = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.lifecycle}"
     const val kaptHilt =  "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
     const val kaptLifecycle =  "androidx.hilt:hilt-compiler:${Versions.lifecycle}"
+
+    const val gradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hilt}"
 }
 
 object NetworkLibraries {
@@ -62,6 +64,15 @@ object PersistenceLibraries {
     const val room = "androidx.room:room-runtime:${Versions.room}"
     const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
     const val kaptRoomCompiler = "androidx.room:room-compiler:${Versions.room}"
+}
+
+object NavigationLibraries {
+    object Versions {
+        const val nav = "2.3.2"
+    }
+
+    const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.nav}"
+    const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.nav}"
 }
 
 object TestLibraries {
