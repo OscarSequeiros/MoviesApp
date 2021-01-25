@@ -39,10 +39,14 @@ class MoviesRemoteSource @Inject constructor() {
         val response: RemoteMoviesResponse = client.get("movie/popular") {
             parameter("api_key", API_KEY)
         }
-        return response.results
+
+        return response
+            .results
+            .map { movie -> movie.copy(poster_path = BASE_IMAGE_URL + movie.poster_path) }
     }
 
     companion object {
         const val API_KEY = "61fea730d72afafce9650a937f4f8575"
+        const val BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500"
     }
 }
