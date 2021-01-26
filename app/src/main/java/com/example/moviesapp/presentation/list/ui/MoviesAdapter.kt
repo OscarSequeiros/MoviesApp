@@ -38,7 +38,8 @@ class MoviesAdapter @Inject constructor(
             textOverview.text = movie.overview
             constraintContainer.setOnClickListener { clickListener.invoke(movie.id) }
             imagePoster.load(movie.posterUrl) {
-                placeholder(R.drawable.ic_cinema)
+                placeholder(R.drawable.movie_placeholder)
+                error(R.drawable.movie_placeholder)
             }
             textRating.text = movie.voteAverage
         }

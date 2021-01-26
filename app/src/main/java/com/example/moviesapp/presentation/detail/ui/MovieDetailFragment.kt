@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import coil.load
+import com.example.moviesapp.R
 import com.example.moviesapp.databinding.FragmentMovieDetailBinding
 import com.example.moviesapp.presentation.detail.state.MovieDetailState
 import com.example.moviesapp.presentation.detail.state.MovieDetailState.*
@@ -77,7 +78,10 @@ class MovieDetailFragment : Fragment() {
     private fun showMovie(movie: PresentationMovie) {
         binding?.apply {
             progressLoading.visibility = View.GONE
-            imagePoster.load(movie.posterUrl)
+            imagePoster.load(movie.posterUrl) {
+                placeholder(R.drawable.movie_placeholder)
+                error(R.drawable.movie_placeholder)
+            }
             textTitle.text = movie.title
             textOverview.text = movie.overview
             textRating.text = movie.voteAverage
