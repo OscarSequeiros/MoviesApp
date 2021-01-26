@@ -5,6 +5,7 @@ import com.example.moviesapp.domain.model.Movie
 import com.example.moviesapp.domain.usecase.GetMovieByIdUseCase
 import com.example.moviesapp.factory.FakeMoviesFactory.makeFakeMovie
 import com.example.moviesapp.factory.FakeMoviesFactory.makeFakePresentationMovie
+import com.example.moviesapp.presentation.detail.event.MovieDetailEvent.OpenMovieDetailsEvent
 import com.example.moviesapp.presentation.detail.state.MovieDetailState
 import com.example.moviesapp.presentation.mapper.PresentationMovieMapper
 import com.example.moviesapp.presentation.model.PresentationMovie
@@ -31,7 +32,7 @@ class MovieDetailViewModelTest {
     )
 
     @Test
-    fun `given movie by use case, when getMovie, then expose SuccessfulState`() =
+    fun `given movie by use case, when process OpenMovieDetailsEvent, then expose SuccessfulState`() =
         coroutinesTestRule.testDispatcher.runBlockingTest {
             val fakeMovie = makeFakeMovie()
             stubMovieInUseCase(fakeMovie)
@@ -39,7 +40,7 @@ class MovieDetailViewModelTest {
             stubToPresentationMapper(fakePresentationMovie)
             val fakeMovieId = 43L
 
-            viewModel.getMovie(fakeMovieId)
+            viewModel.processEvent(OpenMovieDetailsEvent(fakeMovieId))
 
             assert(viewModel.stateFlow.value is MovieDetailState.SuccessfulState)
         }
@@ -53,12 +54,12 @@ class MovieDetailViewModelTest {
     }
 
     @Test
-    fun `given exception by use case, when getMovie, then expose FailureState`() =
+    fun `given exception by use case, when process OpenMovieDetailsEvent, then expose FailureState`() =
         coroutinesTestRule.testDispatcher.runBlockingTest {
             stubErrorInUseCase()
             val fakeMovieId = 43L
 
-            viewModel.getMovie(fakeMovieId)
+            viewModel.processEvent(OpenMovieDetailsEvent(fakeMovieId))
 
             assert(viewModel.stateFlow.value is MovieDetailState.FailureState)
         }

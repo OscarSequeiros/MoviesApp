@@ -29,6 +29,7 @@ object KotlinLibraries {
     const val kotlinStdLibrary = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
     const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
     const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
+    const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
 }
 
 object DILibraries {
@@ -75,6 +76,7 @@ object NavigationLibraries {
 
     const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.nav}"
     const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.nav}"
+    const val safeArgs = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.nav}"
 }
 
 object LoggingLibraries {
