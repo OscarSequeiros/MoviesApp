@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     android:background="@color/background">
 
+    <TextView
+        android:id="@+id/text_details_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato_bold"
+        android:textColor="@color/white"
+        android:textSize="@dimen/heading_size"
+        android:text="@string/details"
+        android:layout_marginTop="@dimen/padding_item"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_poster"
         android:layout_width="wrap_content"

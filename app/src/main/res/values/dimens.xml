@@ -13,4 +13,5 @@
     <dimen name="detail_background_vertical_margin">60dp</dimen>
     <dimen name="item_rating_size">18dp</dimen>
     <dimen name="detail_overview_vertical_margin">32dp</dimen>
+    <dimen name="heading_size">28sp</dimen>
 </resources>
