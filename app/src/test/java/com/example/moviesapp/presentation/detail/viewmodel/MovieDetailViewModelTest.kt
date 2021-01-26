@@ -9,6 +9,7 @@ import com.example.moviesapp.presentation.detail.event.MovieDetailEvent.OpenMovi
 import com.example.moviesapp.presentation.detail.state.MovieDetailState
 import com.example.moviesapp.presentation.mapper.PresentationMovieMapper
 import com.example.moviesapp.presentation.model.PresentationMovie
+import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
@@ -42,7 +43,7 @@ class MovieDetailViewModelTest {
 
             viewModel.processEvent(OpenMovieDetailsEvent(fakeMovieId))
 
-            assert(viewModel.stateFlow.value is MovieDetailState.SuccessfulState)
+            viewModel.stateFlow.value shouldBe MovieDetailState.SuccessfulState(fakePresentationMovie)
         }
 
     private fun stubMovieInUseCase(movie: Movie) {
@@ -56,15 +57,16 @@ class MovieDetailViewModelTest {
     @Test
     fun `given exception by use case, when process OpenMovieDetailsEvent, then expose FailureState`() =
         coroutinesTestRule.testDispatcher.runBlockingTest {
-            stubErrorInUseCase()
+            val fakeError = Throwable()
+            stubErrorInUseCase(fakeError)
             val fakeMovieId = 43L
 
             viewModel.processEvent(OpenMovieDetailsEvent(fakeMovieId))
 
-            assert(viewModel.stateFlow.value is MovieDetailState.FailureState)
+            viewModel.stateFlow.value shouldBe MovieDetailState.FailureState(fakeError)
         }
 
-    private fun stubErrorInUseCase() {
-        coEvery { useCase(any()) } coAnswers { error("") }
+    private fun stubErrorInUseCase(error: Throwable) {
+        coEvery { useCase(any()) } coAnswers { throw error }
     }
 }

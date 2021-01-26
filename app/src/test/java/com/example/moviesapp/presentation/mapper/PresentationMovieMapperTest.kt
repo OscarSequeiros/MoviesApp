@@ -4,6 +4,7 @@ import com.example.moviesapp.domain.model.Movie
 import com.example.moviesapp.factory.FakeMoviesFactory.makeFakeMovie
 import com.example.moviesapp.factory.FakeMoviesFactory.makeFakeMovies
 import com.example.moviesapp.presentation.model.PresentationMovie
+import io.kotest.matchers.shouldBe
 import org.junit.Test
 
 class PresentationMovieMapperTest {
@@ -30,12 +31,12 @@ class PresentationMovieMapperTest {
     }
 
     private fun assertAllFields(presentationMovie: PresentationMovie, movie: Movie) {
-        assert(presentationMovie.id == movie.id)
-        assert(presentationMovie.title == movie.title)
-        assert(presentationMovie.overview == movie.overview)
-        assert(presentationMovie.isOnlyForAdults == movie.isOnlyForAdults)
-        assert(presentationMovie.posterUrl == movie.posterUrl)
-        assert(presentationMovie.voteAverage == movie.voteAverage.toString())
-        assert(presentationMovie.releaseDate == movie.releaseDate)
+        presentationMovie.id shouldBe movie.id
+        presentationMovie.title shouldBe movie.title
+        presentationMovie.overview shouldBe movie.overview
+        presentationMovie.isOnlyForAdults shouldBe movie.isOnlyForAdults
+        presentationMovie.posterUrl shouldBe movie.posterUrl
+        presentationMovie.voteAverage shouldBe  movie.voteAverage.toString()
+        presentationMovie.releaseDate shouldBe  movie.releaseDate
     }
 }

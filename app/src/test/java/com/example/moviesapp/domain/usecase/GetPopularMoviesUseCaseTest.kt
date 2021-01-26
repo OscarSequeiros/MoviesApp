@@ -3,6 +3,7 @@ package com.example.moviesapp.domain.usecase
 import com.example.moviesapp.factory.FakeMoviesFactory
 import com.example.moviesapp.domain.model.Movie
 import com.example.moviesapp.domain.repository.MoviesRepository
+import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.flow.collect
@@ -24,7 +25,7 @@ class GetPopularMoviesUseCaseTest {
         val flowMovies = useCase.invoke()
 
         flowMovies.collect { movies ->
-            assert(fakeMovies == movies)
+            fakeMovies shouldBe movies
         }
     }
 

@@ -21,14 +21,15 @@ class MoviesLocalSourceTest {
     private val localSource = MoviesLocalSource(database)
 
     @Test
-    fun `given popular movies from db, when getAllMovies, then get the same list`() = runBlockingTest {
-        val fakeMovies = makeFakeLocalMovies(6)
-        stubMoviesInDatabase(fakeMovies)
+    fun `given popular movies from db, when getAllMovies, then get the same list`() =
+        runBlockingTest {
+            val fakeMovies = makeFakeLocalMovies(6)
+            stubMoviesInDatabase(fakeMovies)
 
-        val moviesFlow = localSource.getAllMovies()
+            val moviesFlow = localSource.getAllMovies()
 
-        moviesFlow.collect { movies -> fakeMovies shouldBe movies }
-    }
+            moviesFlow.collect { movies -> fakeMovies shouldBe movies }
+        }
 
     private fun stubMoviesInDatabase(movies: List<LocalMovie>) {
         coEvery { database.movieDao().getAllPopulars() } coAnswers { flowOf(movies) }
