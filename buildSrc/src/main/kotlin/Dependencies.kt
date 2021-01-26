@@ -81,10 +81,12 @@ object TestLibraries {
     object Versions {
         const val jUnit = "4.13.1"
         const val mockk = "1.10.5"
+        const val coroutines = "1.4.2"
     }
 
     const val jUnit = "junit:junit:${Versions.jUnit}"
     const val mockk = "io.mockk:mockk:${Versions.mockk}"
+    const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
 }
 
 object TestAndroidLibraries {
