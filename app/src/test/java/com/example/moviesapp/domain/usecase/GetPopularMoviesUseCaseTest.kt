@@ -1,6 +1,6 @@
 package com.example.moviesapp.domain.usecase
 
-import com.example.moviesapp.FakeMoviesFactory
+import com.example.moviesapp.factory.FakeMoviesFactory
 import com.example.moviesapp.domain.model.Movie
 import com.example.moviesapp.domain.repository.MoviesRepository
 import io.mockk.coEvery
