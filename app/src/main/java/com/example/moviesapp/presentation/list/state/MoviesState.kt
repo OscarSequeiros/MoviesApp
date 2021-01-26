@@ -1,4 +1,4 @@
-package com.example.moviesapp.presentation
+package com.example.moviesapp.presentation.list.state
 
 import com.example.moviesapp.presentation.model.PresentationMovie
 

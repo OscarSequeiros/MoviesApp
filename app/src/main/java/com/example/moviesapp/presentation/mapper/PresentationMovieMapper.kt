@@ -16,7 +16,8 @@ class PresentationMovieMapper @Inject constructor() {
             title = movie.title,
             overview = movie.overview,
             posterUrl = movie.posterUrl,
-            isOnlyForAdults = movie.isOnlyForAdults
+            isOnlyForAdults = movie.isOnlyForAdults,
+            voteAverage = movie.voteAverage.toString(),
         )
     }
 }

@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="16dp"
-    android:layout_marginEnd="16dp"
+    android:layout_marginStart="@dimen/vertical_item_margin"
+    android:layout_marginEnd="@dimen/vertical_item_margin"
     android:background="@color/background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/item_movie_background"
-        android:padding="12dp"
+        android:padding="@dimen/padding_item"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -28,12 +28,12 @@
             android:id="@+id/text_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="@dimen/vertical_title_margin"
             android:ellipsize="end"
             android:fontFamily="@font/lato_bold"
             android:maxLines="2"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="@dimen/title_size"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/guideline"
             app:layout_constraintTop_toTopOf="parent"
@@ -43,33 +43,37 @@
             android:id="@+id/text_overview"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="@dimen/overview_item_vertical_margin"
             android:ellipsize="end"
-            android:fontFamily="@font/lato_regular"
-            android:maxLines="2"
+            android:fontFamily="@font/lato_italic"
+            android:maxLines="3"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/guideline"
             app:layout_constraintTop_toBottomOf="@+id/text_title" />
 
-        <TextView
-            android:id="@+id/text_language"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/lato_regular"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/text_overview" />
-
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:id="@+id/image_rating"
+            android:layout_width="@dimen/item_rating_size"
+            android:layout_height="@dimen/item_rating_size"
+            android:layout_marginTop="@dimen/rating_item_vertical_margin"
             android:contentDescription="@string/rating"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_language"
+            app:layout_constraintTop_toBottomOf="@+id/text_overview"
             app:srcCompat="@drawable/ic_star" />
+
+        <TextView
+            android:id="@+id/text_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/rating_text_item_end_margin"
+            android:fontFamily="@font/lato_bold"
+            android:textColor="@color/yellow"
+            android:textSize="@dimen/subtitle_size"
+            app:layout_constraintBottom_toBottomOf="@+id/image_rating"
+            app:layout_constraintEnd_toStartOf="@+id/image_rating"
+            app:layout_constraintTop_toTopOf="@+id/image_rating"
+            tools:text="7.7" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -77,10 +81,10 @@
         android:id="@+id/card_image_container"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        app:cardCornerRadius="8dp"
+        android:layout_marginStart="@dimen/poster_start_margin"
+        android:layout_marginTop="@dimen/vertical_item_margin"
+        android:layout_marginBottom="@dimen/vertical_item_margin"
+        app:cardCornerRadius="@dimen/poster_item_radius"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline_poster"
         app:layout_constraintStart_toStartOf="parent"

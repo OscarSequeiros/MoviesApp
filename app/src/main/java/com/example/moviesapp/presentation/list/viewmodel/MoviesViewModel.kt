@@ -1,11 +1,11 @@
-package com.example.moviesapp.presentation.viewmodel
+package com.example.moviesapp.presentation.list.viewmodel
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.moviesapp.domain.usecase.GetPopularMoviesUseCase
-import com.example.moviesapp.presentation.MoviesState
-import com.example.moviesapp.presentation.MoviesState.*
+import com.example.moviesapp.presentation.list.state.MoviesState
+import com.example.moviesapp.presentation.list.state.MoviesState.*
 import com.example.moviesapp.presentation.mapper.PresentationMovieMapper
 import com.example.moviesapp.presentation.model.PresentationMovie
 import kotlinx.coroutines.flow.*

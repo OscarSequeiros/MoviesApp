@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -24,6 +25,8 @@ android {
                               "room.schemaLocation": "$projectDir/schemas".toString()]
             }
         }
+
+        buildConfigField("String","APP_KEY", API_KEY)
     }
 
     buildTypes {
