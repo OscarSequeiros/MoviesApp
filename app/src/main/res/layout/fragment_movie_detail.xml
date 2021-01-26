@@ -21,8 +21,8 @@
 
     <ImageView
         android:id="@+id/image_play"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="@dimen/play_size"
+        android:layout_height="@dimen/play_size"
         android:layout_marginTop="@dimen/detail_poster_vertical_margin"
         android:contentDescription="@string/tab_to_play"
         app:layout_constraintEnd_toEndOf="parent"

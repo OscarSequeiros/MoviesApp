@@ -1,5 +1,6 @@
 package com.example.moviesapp.data.local
 
+import com.example.moviesapp.data.local.database.MoviesAppDataBase
 import com.example.moviesapp.data.local.model.LocalMovie
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
