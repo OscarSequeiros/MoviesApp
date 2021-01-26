@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_poster"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.12" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_image_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/poster_start_margin"
+        android:layout_marginTop="@dimen/vertical_item_margin"
+        android:layout_marginBottom="@dimen/vertical_item_margin"
+        app:cardCornerRadius="@dimen/poster_item_radius"
+        app:layout_constraintStart_toStartOf="@+id/constraint_background"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_poster">
+
+        <ImageView
+            android:id="@+id/image_poster"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/movie_poster"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/ic_launcher_background" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/poster_start_margin"
+        android:layout_marginTop="@dimen/detail_background_vertical_margin"
+        android:layout_marginEnd="@dimen/poster_start_margin"
+        android:background="@drawable/item_movie_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/card_image_container">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/poster_start_margin"
+        android:layout_marginTop="@dimen/vertical_title_margin"
+        android:fontFamily="@font/lato_bold"
+        android:textColor="@color/white"
+        android:textSize="@dimen/title_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/card_image_container"
+        app:layout_constraintTop_toTopOf="@+id/constraint_background"
+        tools:text="Interstellar" />
+
+    <TextView
+        android:id="@+id/text_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/rating_text_item_end_margin"
+        android:fontFamily="@font/lato_bold"
+        android:textColor="@color/yellow"
+        android:textSize="@dimen/subtitle_size"
+        app:layout_constraintBottom_toBottomOf="@+id/image_rating"
+        app:layout_constraintStart_toStartOf="@+id/text_title"
+        app:layout_constraintTop_toTopOf="@+id/image_rating"
+        tools:text="7.7" />
+
+    <ImageView
+        android:id="@+id/image_rating"
+        android:layout_width="@dimen/item_rating_size"
+        android:layout_height="@dimen/item_rating_size"
+        android:layout_marginStart="@dimen/rating_text_item_end_margin"
+        android:layout_marginTop="@dimen/rating_item_vertical_margin"
+        android:contentDescription="@string/rating"
+        app:layout_constraintStart_toEndOf="@+id/text_rating"
+        app:layout_constraintTop_toBottomOf="@+id/text_title"
+        app:srcCompat="@drawable/ic_star" />
+
+    <TextView
+        android:id="@+id/text_release_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/overview_item_vertical_margin"
+        android:fontFamily="@font/lato_regular"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/text_title"
+        app:layout_constraintTop_toBottomOf="@+id/image_rating"
+        tools:text="Sep 2020" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier_overview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="card_image_container,text_release_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_overview_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/poster_start_margin"
+        android:layout_marginTop="@dimen/detail_overview_vertical_margin"
+        android:layout_marginEnd="@dimen/poster_start_margin"
+        android:fontFamily="@font/lato_bold"
+        android:text="@string/introduce"
+        android:textColor="@color/white"
+        android:textSize="@dimen/title_size"
+        app:layout_constraintEnd_toEndOf="@+id/constraint_background"
+        app:layout_constraintStart_toStartOf="@+id/constraint_background"
+        app:layout_constraintTop_toBottomOf="@+id/barrier_overview" />
+
+    <TextView
+        android:id="@+id/text_overview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/poster_start_margin"
+        android:layout_marginTop="@dimen/overview_item_vertical_margin"
+        android:layout_marginEnd="@dimen/poster_start_margin"
+        android:fontFamily="@font/lato_regular"
+        android:text="@string/introduce"
+        android:textColor="@color/white"
+        android:textSize="@dimen/title_size"
+        app:layout_constraintEnd_toEndOf="@+id/constraint_background"
+        app:layout_constraintStart_toStartOf="@+id/constraint_background"
+        app:layout_constraintTop_toBottomOf="@+id/text_overview_label"
+        tools:text="@tools:sample/lorem/random" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

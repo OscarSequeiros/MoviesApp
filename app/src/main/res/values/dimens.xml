@@ -10,4 +10,7 @@
     <dimen name="rating_text_item_end_margin">8dp</dimen>
     <dimen name="poster_start_margin">16dp</dimen>
     <dimen name="poster_item_radius">8dp</dimen>
+    <dimen name="detail_background_vertical_margin">30dp</dimen>
+    <dimen name="item_rating_size">18dp</dimen>
+    <dimen name="detail_overview_vertical_margin">24dp</dimen>
 </resources>

@@ -4,4 +4,5 @@
     <string name="error_image">Imagen de error</string>
     <string name="movie_poster">Poster de la película</string>
     <string name="rating">Rating</string>
+    <string name="introduce">Introduce</string>
 </resources>
