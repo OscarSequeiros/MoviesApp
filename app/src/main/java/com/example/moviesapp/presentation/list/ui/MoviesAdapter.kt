@@ -14,7 +14,7 @@ class MoviesAdapter @Inject constructor(
 ) : RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
 
     var movies: List<PresentationMovie> = emptyList()
-        set(value)  {
+        set(value) {
             field = value
             notifyDataSetChanged()
         }
@@ -37,11 +37,15 @@ class MoviesAdapter @Inject constructor(
             textTitle.text = movie.title
             textOverview.text = movie.overview
             constraintContainer.setOnClickListener { clickListener.invoke(movie.id) }
-            imagePoster.load(movie.posterUrl) {
+            loadImage(movie.posterUrl)
+            textRating.text = movie.voteAverage
+        }
+
+        private fun ItemMovieBinding.loadImage(posterUrl: String?) {
+            imagePoster.load(posterUrl) {
                 placeholder(R.drawable.movie_placeholder)
                 error(R.drawable.movie_placeholder)
             }
-            textRating.text = movie.voteAverage
         }
     }
 }

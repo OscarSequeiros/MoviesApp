@@ -59,16 +59,11 @@ class MoviesFragment : Fragment() {
 
     private fun render(state: MoviesState) {
         when(state) {
-            is IdleState -> showIdleState()
             is LoadingState -> showLoading()
             is FailureState -> showFailure(state.error)
             is EmptyMoviesState -> showEmptyMovies()
             is FilledMoviesState -> showMovies(state.movies)
         }
-    }
-
-    private fun showIdleState() {
-
     }
 
     private fun showLoading() {

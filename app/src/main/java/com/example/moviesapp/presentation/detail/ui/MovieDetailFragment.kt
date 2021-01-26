@@ -54,15 +54,10 @@ class MovieDetailFragment : Fragment() {
 
     private fun render(state: MovieDetailState) {
         when (state) {
-            is IdleState -> showIdleState()
             is LoadingState -> showLoading()
             is SuccessfulState -> showMovie(state.movie)
             is FailureState -> showFailure(state.error)
         }
-    }
-
-    private fun showIdleState() {
-
     }
 
     private fun showLoading() {
@@ -78,14 +73,18 @@ class MovieDetailFragment : Fragment() {
     private fun showMovie(movie: PresentationMovie) {
         binding?.apply {
             progressLoading.visibility = View.GONE
-            imagePoster.load(movie.posterUrl) {
-                placeholder(R.drawable.movie_placeholder)
-                error(R.drawable.movie_placeholder)
-            }
+            loadImage(movie.posterUrl)
             textTitle.text = movie.title
             textOverview.text = movie.overview
             textRating.text = movie.voteAverage
             textReleaseDate.text = movie.releaseDate
+        }
+    }
+
+    private fun FragmentMovieDetailBinding.loadImage(posterUrl: String?) {
+        imagePoster.load(posterUrl) {
+            placeholder(R.drawable.movie_placeholder)
+            error(R.drawable.movie_placeholder)
         }
     }
 
