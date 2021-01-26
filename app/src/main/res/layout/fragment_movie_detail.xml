@@ -10,32 +10,36 @@
         android:id="@+id/text_details_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_item"
         android:fontFamily="@font/lato_bold"
+        android:text="@string/details"
         android:textColor="@color/white"
         android:textSize="@dimen/heading_size"
-        android:text="@string/details"
-        android:layout_marginTop="@dimen/padding_item"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_poster"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.08" />
+    <ImageView
+        android:id="@+id/image_play"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/tab_to_play"
+        android:layout_marginTop="@dimen/detail_poster_vertical_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_details_label"
+        app:srcCompat="@drawable/ic_play" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_image_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/poster_start_margin"
-        android:layout_marginTop="@dimen/vertical_item_margin"
+        android:layout_marginTop="@dimen/detail_poster_vertical_margin"
         android:layout_marginBottom="@dimen/vertical_item_margin"
         app:cardCornerRadius="@dimen/poster_item_radius"
         app:layout_constraintStart_toStartOf="@+id/constraint_background"
-        app:layout_constraintTop_toBottomOf="@+id/guideline_poster">
+        app:layout_constraintTop_toBottomOf="@+id/image_play">
 
         <ImageView
             android:id="@+id/image_poster"
@@ -108,8 +112,8 @@
         android:layout_marginTop="@dimen/overview_item_vertical_margin"
         android:fontFamily="@font/lato_regular"
         android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="@+id/text_title"
         app:layout_constraintEnd_toEndOf="@+id/constraint_background"
+        app:layout_constraintStart_toStartOf="@+id/text_title"
         app:layout_constraintTop_toBottomOf="@+id/image_rating"
         tools:text="Sep 2020" />
 

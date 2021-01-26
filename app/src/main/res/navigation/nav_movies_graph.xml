@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_movies_graph"
     app:startDestination="@id/moviesFragment">
 
     <fragment
         android:id="@+id/moviesFragment"
         android:name="com.example.moviesapp.presentation.list.ui.MoviesFragment"
-        android:label="Movie List"
-        tools:layout="@layout/fragment_movies">
+        android:label="Movie List">
 
         <action
             android:id="@+id/action_to_detail"
@@ -24,8 +22,7 @@
     <fragment
         android:id="@+id/movieDetailFragment"
         android:name="com.example.moviesapp.presentation.detail.ui.MovieDetailFragment"
-        android:label="Detail"
-        tools:layout="@layout/fragment_movie_detail">
+        android:label="Detail">
 
         <argument
             android:name="argMovieId"
