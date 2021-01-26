@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import coil.load
 import com.example.moviesapp.databinding.FragmentMovieDetailBinding
 import com.example.moviesapp.presentation.detail.state.MovieDetailState
 import com.example.moviesapp.presentation.detail.state.MovieDetailState.*
@@ -60,15 +61,22 @@ class MovieDetailFragment : Fragment() {
     }
 
     private fun showLoading() {
-
+        binding?.progressLoading?.visibility = View.VISIBLE
     }
 
     private fun showFailure() {
-
+        binding?.progressLoading?.visibility = View.GONE
+        binding?.imageFailure?.visibility = View.VISIBLE
     }
 
     private fun showMovie(movie: PresentationMovie) {
-
+        binding?.apply {
+            progressLoading.visibility = View.GONE
+            imagePoster.load(movie.posterUrl)
+            textTitle.text = movie.title
+            textOverview.text = movie.overview
+            textRating.text = movie.voteAverage
+        }
     }
 
     override fun onDestroyView() {

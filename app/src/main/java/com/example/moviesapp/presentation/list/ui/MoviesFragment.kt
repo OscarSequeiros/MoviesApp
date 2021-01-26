@@ -4,15 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.findNavController
 import com.example.moviesapp.databinding.FragmentMoviesBinding
 import com.example.moviesapp.presentation.list.state.MoviesState
 import com.example.moviesapp.presentation.list.state.MoviesState.*
-import com.example.moviesapp.presentation.model.PresentationMovie
 import com.example.moviesapp.presentation.list.viewmodel.MoviesViewModel
+import com.example.moviesapp.presentation.model.PresentationMovie
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -25,7 +25,8 @@ class MoviesFragment : Fragment() {
     private val viewModel: MoviesViewModel by viewModels()
 
     private val adapter = MoviesAdapter { movieId ->
-        Toast.makeText(context, "Presionaste $movieId", Toast.LENGTH_SHORT).show()
+        val direction = MoviesFragmentDirections.actionToDetail(movieId)
+        binding?.root?.findNavController()?.navigate(direction)
     }
 
     override fun onCreateView(

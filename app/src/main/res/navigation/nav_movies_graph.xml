@@ -25,6 +25,12 @@
         android:id="@+id/movieDetailFragment"
         android:name="com.example.moviesapp.presentation.detail.ui.MovieDetailFragment"
         android:label="Detail"
-        tools:layout="@layout/fragment_movie_detail" />
+        tools:layout="@layout/fragment_movie_detail">
+
+        <argument
+            android:name="argMovieId"
+            app:argType="long" />
+
+    </fragment>
 
 </navigation>
