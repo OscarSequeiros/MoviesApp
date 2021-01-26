@@ -1,9 +1,8 @@
 # MoviesApp
-Exercise project for practicing new tech stack.
-API: https://www.themoviedb.org/documentation/api
+Exercise project using https://www.themoviedb.org/documentation/api as API.
 
 ## Getting Started
-Default branch
+Default and main branch:
 ```bash
 main
 ```
@@ -15,6 +14,7 @@ git clone https://github.com/OscarSequeiros/MoviesApp.git
 ```
 ### Prerequisites
 Android Studio 4.+
+Kotlin 1.4.21
 
 ### Running Test
 For local unit test:
