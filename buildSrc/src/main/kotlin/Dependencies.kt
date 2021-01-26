@@ -80,9 +80,11 @@ object NavigationLibraries {
 object TestLibraries {
     object Versions {
         const val jUnit = "4.13.1"
+        const val mockk = "1.10.5"
     }
 
     const val jUnit = "junit:junit:${Versions.jUnit}"
+    const val mockk = "io.mockk:mockk:${Versions.mockk}"
 }
 
 object TestAndroidLibraries {

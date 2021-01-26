@@ -79,6 +79,7 @@ dependencies {
     kapt PersistenceLibraries.kaptRoomCompiler
 
     testImplementation TestLibraries.jUnit
+    testImplementation TestLibraries.mockk
 
     androidTestImplementation TestAndroidLibraries.androidJUnit
     androidTestImplementation TestAndroidLibraries.espresso
