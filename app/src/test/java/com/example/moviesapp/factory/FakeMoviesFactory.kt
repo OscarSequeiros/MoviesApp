@@ -11,7 +11,7 @@ import com.example.moviesapp.presentation.model.PresentationMovie
 object FakeMoviesFactory {
 
     fun makeFakeMovies(count: Int = 4): List<Movie> {
-        return (0..count).map { makeFakeMovie() }
+        return (0 until count).map { makeFakeMovie() }
     }
 
     fun makeFakeMovie(): Movie {
@@ -27,7 +27,7 @@ object FakeMoviesFactory {
     }
 
     fun makeFakeLocalMovies(count: Int = 4): List<LocalMovie> {
-        return (0..count).map { makeFakeLocalMovie() }
+        return (0 until count).map { makeFakeLocalMovie() }
     }
 
     fun makeFakeLocalMovie(): LocalMovie {
@@ -43,7 +43,7 @@ object FakeMoviesFactory {
     }
 
     fun makeFakeRemoteMovies(count: Int = 4): List<RemoteMovie> {
-        return (0..count).map { makeFakeRemoteMovie() }
+        return (0 until count).map { makeFakeRemoteMovie() }
     }
 
     private fun makeFakeRemoteMovie(): RemoteMovie {
@@ -59,7 +59,7 @@ object FakeMoviesFactory {
     }
 
     fun makeFakePresentationMovies(count: Int = 4): List<PresentationMovie> {
-        return (0..count).map { makeFakePresentationMovie() }
+        return (0 until count).map { makeFakePresentationMovie() }
     }
 
     fun makeFakePresentationMovie(): PresentationMovie {

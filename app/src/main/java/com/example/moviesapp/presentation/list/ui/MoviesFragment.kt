@@ -43,6 +43,7 @@ class MoviesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         observeStates()
         setupAdapter()
+        viewModel.getPopularMovies()
     }
 
     private fun observeStates() {
@@ -58,7 +59,7 @@ class MoviesFragment : Fragment() {
     }
 
     private fun render(state: MoviesState) {
-        when(state) {
+        when (state) {
             is LoadingState -> showLoading()
             is FailureState -> showFailure(state.error)
             is EmptyMoviesState -> showEmptyMovies()
