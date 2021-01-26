@@ -11,7 +11,7 @@ main
 ### Installing
 Clone this repository and import it in Android Studio.
 ```bash
-git https://github.com/OscarSequeiros/MoviesApp.git
+git clone https://github.com/OscarSequeiros/MoviesApp.git
 ```
 ### Prerequisites
 Android Studio 4.+
