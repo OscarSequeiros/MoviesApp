@@ -3,6 +3,8 @@ Exercise project for practicing new tech stack.
 API: https://www.themoviedb.org/documentation/api
 
 ## Getting Started
+Default branch
+````main```
 
 ### Installing
 Clone this repository and import it in Android Studio.
