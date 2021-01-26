@@ -24,10 +24,10 @@ class DataMovieMapper @Inject constructor() {
     }
 
     fun toLocal(movies: List<RemoteMovie>): List<LocalMovie> {
-        return movies.map { movie -> toDomain(movie) }
+        return movies.map { movie -> toLocal(movie) }
     }
 
-    private fun toDomain(movie: RemoteMovie): LocalMovie {
+    private fun toLocal(movie: RemoteMovie): LocalMovie {
         return LocalMovie(
             id = movie.id,
             title = movie.title,
