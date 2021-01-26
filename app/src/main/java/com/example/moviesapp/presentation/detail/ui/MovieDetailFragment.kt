@@ -11,6 +11,7 @@ import androidx.navigation.fragment.navArgs
 import coil.load
 import com.example.moviesapp.R
 import com.example.moviesapp.databinding.FragmentMovieDetailBinding
+import com.example.moviesapp.presentation.detail.event.MovieDetailEvent.OpenMovieDetailsEvent
 import com.example.moviesapp.presentation.detail.state.MovieDetailState
 import com.example.moviesapp.presentation.detail.state.MovieDetailState.*
 import com.example.moviesapp.presentation.detail.viewmodel.MovieDetailViewModel
@@ -42,7 +43,7 @@ class MovieDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observeStates()
-        viewModel.getMovie(args.argMovieId)
+        viewModel.processEvent(OpenMovieDetailsEvent(args.argMovieId))
     }
 
     private fun observeStates() {
