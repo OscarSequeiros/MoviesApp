@@ -4,7 +4,9 @@ API: https://www.themoviedb.org/documentation/api
 
 ## Getting Started
 Default branch
-````main```
+````bash
+main
+```
 
 ### Installing
 Clone this repository and import it in Android Studio.
