@@ -82,7 +82,9 @@ dependencies {
     testImplementation TestLibraries.jUnit
     testImplementation TestLibraries.mockk
     testImplementation TestLibraries.coroutines
+    testImplementation TestLibraries.kotest
 
     androidTestImplementation TestAndroidLibraries.androidJUnit
     androidTestImplementation TestAndroidLibraries.espresso
+    androidTestImplementation TestAndroidLibraries.archCore
 }

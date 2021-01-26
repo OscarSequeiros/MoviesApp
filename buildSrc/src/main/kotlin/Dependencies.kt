@@ -90,19 +90,23 @@ object TestLibraries {
         const val jUnit = "4.13.1"
         const val mockk = "1.10.5"
         const val coroutines = "1.4.2"
+        const val kotest = "4.3.2"
     }
 
     const val jUnit = "junit:junit:${Versions.jUnit}"
     const val mockk = "io.mockk:mockk:${Versions.mockk}"
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
+    const val kotest = "io.kotest:kotest-assertions-core:${Versions.kotest}"
 }
 
 object TestAndroidLibraries {
     object Versions {
         const val androidJUnit = "1.1.2"
         const val androidEspresso = "3.3.0"
+        const val archCore = "2.1.0"
     }
 
     const val androidJUnit = "androidx.test.ext:junit:${Versions.androidJUnit}"
     const val espresso = "androidx.test.espresso:espresso-core:${Versions.androidEspresso}"
+    const val archCore = "androidx.arch.core:core-testing:${Versions.archCore}"
 }
