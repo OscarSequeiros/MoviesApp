@@ -77,6 +77,14 @@ object NavigationLibraries {
     const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.nav}"
 }
 
+object LoggingLibraries {
+    object Versions {
+        const val timber = "4.7.1"
+    }
+
+    const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
+}
+
 object TestLibraries {
     object Versions {
         const val jUnit = "4.13.1"

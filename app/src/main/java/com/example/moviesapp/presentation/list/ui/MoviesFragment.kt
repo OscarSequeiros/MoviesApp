@@ -16,6 +16,7 @@ import com.example.moviesapp.presentation.model.PresentationMovie
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 @AndroidEntryPoint
 class MoviesFragment : Fragment() {
@@ -72,7 +73,7 @@ class MoviesFragment : Fragment() {
     }
 
     private fun showFailure(error: Throwable) {
-        error.printStackTrace()
+        Timber.d(error)
         binding?.progressLoading?.visibility = View.GONE
         binding?.imageFailure?.visibility = View.VISIBLE
     }
