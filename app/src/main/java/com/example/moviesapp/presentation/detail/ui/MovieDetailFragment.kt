@@ -5,18 +5,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.moviesapp.databinding.FragmentMovieDetailBinding
 import com.example.moviesapp.presentation.detail.state.MovieDetailState
 import com.example.moviesapp.presentation.detail.state.MovieDetailState.*
+import com.example.moviesapp.presentation.detail.viewmodel.MovieDetailViewModel
 import com.example.moviesapp.presentation.model.PresentationMovie
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MovieDetailFragment : Fragment() {
 
     private var binding: FragmentMovieDetailBinding? = null
+
+    private val viewModel: MovieDetailViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,9 +40,9 @@ class MovieDetailFragment : Fragment() {
 
     private fun observeStates() {
         lifecycleScope.launch {
-            /*viewModel
+            viewModel
                 .stateFlow
-                .collect { state -> render(state) }*/
+                .collect { state -> render(state) }
         }
     }
 
