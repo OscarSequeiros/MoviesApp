@@ -39,14 +39,14 @@ class MovieDaoTest {
         database.close()
     }
 
-    @Ignore("To check what is the problem")
+    @Ignore("Pending for checking")
     @Test
     fun given_localMovie_list_when_insertAll_then_update_database() = runBlocking {
         val moviesToSave = makeFakeLocalMovies(4)
 
         dao.insertAll(moviesToSave)
 
-        dao.getAllPopulars().collect { savedMovies: List<LocalMovie> ->
+        dao.getAllPopulars().collect { savedMovies ->
             assert(savedMovies.contains(moviesToSave))
         }
     }
