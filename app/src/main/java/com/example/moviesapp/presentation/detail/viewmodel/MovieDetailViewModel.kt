@@ -20,18 +20,15 @@ class MovieDetailViewModel @ViewModelInject constructor(
     val stateFlow: StateFlow<MovieDetailState>
         get() = _stateFlow
 
-    fun getMovie(id: Long) {
+    fun getMovie(movieId: Long) {
         flow {
-            val movie = getMovieByIdUseCase(0)
+            val movie = getMovieByIdUseCase(movieId)
             emit(movie)
         }
             .map { movie -> mapper.toPresentation(movie) }
             .map { movie -> MovieDetailState.SuccessfulState(movie) as MovieDetailState }
             .onStart { emit(MovieDetailState.LoadingState) }
-            .catch { error ->
-                error.printStackTrace()
-                emit(FailureState)
-            }
+            .catch { error -> emit(FailureState(error)) }
             .onEach { state -> _stateFlow.value = state }
             .launchIn(viewModelScope)
     }

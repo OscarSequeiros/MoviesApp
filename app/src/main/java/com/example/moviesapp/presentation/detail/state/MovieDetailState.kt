@@ -10,5 +10,5 @@ sealed class MovieDetailState {
 
     data class SuccessfulState(val movie: PresentationMovie) : MovieDetailState()
 
-    object FailureState : MovieDetailState()
+    data class FailureState(val error: Throwable) : MovieDetailState()
 }

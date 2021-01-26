@@ -12,5 +12,5 @@ sealed class MoviesState {
 
     data class FilledMoviesState(val movies: List<PresentationMovie>) : MoviesState()
 
-    object FailureState : MoviesState()
+    data class FailureState(val error: Throwable) : MoviesState()
 }

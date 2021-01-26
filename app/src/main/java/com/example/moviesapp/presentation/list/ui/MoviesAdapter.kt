@@ -36,7 +36,7 @@ class MoviesAdapter @Inject constructor(
         fun bind(movie: PresentationMovie) = with(binding) {
             textTitle.text = movie.title
             textOverview.text = movie.overview
-            imagePoster.setOnClickListener { clickListener.invoke(movie.id) }
+            constraintContainer.setOnClickListener { clickListener.invoke(movie.id) }
             imagePoster.load(movie.posterUrl) {
                 placeholder(R.drawable.ic_cinema)
             }

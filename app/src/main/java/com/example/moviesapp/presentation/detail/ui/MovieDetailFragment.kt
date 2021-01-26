@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.navArgs
 import coil.load
 import com.example.moviesapp.databinding.FragmentMovieDetailBinding
 import com.example.moviesapp.presentation.detail.state.MovieDetailState
@@ -24,6 +25,8 @@ class MovieDetailFragment : Fragment() {
 
     private val viewModel: MovieDetailViewModel by viewModels()
 
+    private val args: MovieDetailFragmentArgs by navArgs()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -37,6 +40,7 @@ class MovieDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observeStates()
+        viewModel.getMovie(args.argMovieId)
     }
 
     private fun observeStates() {
@@ -52,7 +56,7 @@ class MovieDetailFragment : Fragment() {
             is IdleState -> showIdleState()
             is LoadingState -> showLoading()
             is SuccessfulState -> showMovie(state.movie)
-            is FailureState -> showFailure()
+            is FailureState -> showFailure(state.error)
         }
     }
 
@@ -64,7 +68,8 @@ class MovieDetailFragment : Fragment() {
         binding?.progressLoading?.visibility = View.VISIBLE
     }
 
-    private fun showFailure() {
+    private fun showFailure(error: Throwable) {
+        error.printStackTrace()
         binding?.progressLoading?.visibility = View.GONE
         binding?.imageFailure?.visibility = View.VISIBLE
     }

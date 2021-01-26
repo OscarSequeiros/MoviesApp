@@ -61,7 +61,7 @@ class MoviesFragment : Fragment() {
         when(state) {
             is IdleState -> showIdleState()
             is LoadingState -> showLoading()
-            is FailureState -> showFailure()
+            is FailureState -> showFailure(state.error)
             is EmptyMoviesState -> showEmptyMovies()
             is FilledMoviesState -> showMovies(state.movies)
         }
@@ -75,7 +75,8 @@ class MoviesFragment : Fragment() {
         binding?.progressLoading?.visibility = View.VISIBLE
     }
 
-    private fun showFailure() {
+    private fun showFailure(error: Throwable) {
+        error.printStackTrace()
         binding?.progressLoading?.visibility = View.GONE
         binding?.imageFailure?.visibility = View.VISIBLE
     }
