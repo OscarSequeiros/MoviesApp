@@ -151,7 +151,7 @@
         android:layout_marginStart="@dimen/poster_start_margin"
         android:layout_marginTop="@dimen/overview_item_vertical_margin"
         android:layout_marginEnd="@dimen/poster_start_margin"
-        android:fontFamily="@font/lato_regular"
+        android:fontFamily="@font/lato_italic"
         android:textColor="@color/white"
         android:textSize="@dimen/subtitle_size"
         app:layout_constraintEnd_toEndOf="@+id/constraint_background"

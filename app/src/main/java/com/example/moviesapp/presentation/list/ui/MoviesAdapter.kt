@@ -8,16 +8,15 @@ import com.example.moviesapp.R
 import com.example.moviesapp.databinding.ItemMovieBinding
 import com.example.moviesapp.presentation.model.PresentationMovie
 import javax.inject.Inject
+import kotlin.properties.Delegates
 
 class MoviesAdapter @Inject constructor(
     private val clickListener: (movieId: Long) -> Unit
 ) : RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
 
-    var movies: List<PresentationMovie> = emptyList()
-        set(value) {
-            field = value
-            notifyDataSetChanged()
-        }
+    var movies: List<PresentationMovie> by Delegates.observable(emptyList()) { _, _, _ ->
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val binding = ItemMovieBinding.inflate(from(parent.context), parent, false)
