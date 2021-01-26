@@ -4,6 +4,8 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.moviesapp.domain.usecase.GetPopularMoviesUseCase
+import com.example.moviesapp.presentation.list.event.MoviesEvent
+import com.example.moviesapp.presentation.list.event.MoviesEvent.*
 import com.example.moviesapp.presentation.list.state.MoviesState
 import com.example.moviesapp.presentation.list.state.MoviesState.*
 import com.example.moviesapp.presentation.mapper.PresentationMovieMapper
@@ -20,7 +22,13 @@ class MoviesViewModel @ViewModelInject constructor(
     val stateFlow: StateFlow<MoviesState>
         get() = _stateFlow
 
-    fun getPopularMovies() {
+    fun processEvent(event: MoviesEvent) {
+        when (event) {
+            OpenMoviesEvent -> getPopularMoviesIntention()
+        }
+    }
+
+    private fun getPopularMoviesIntention() {
         getMoviesUseCase()
             .map { movies -> mapper.toPresentation(movies) }
             .map { movies -> movies.toState() }

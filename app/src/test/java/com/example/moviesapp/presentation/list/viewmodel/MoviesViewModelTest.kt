@@ -5,6 +5,7 @@ import com.example.moviesapp.domain.model.Movie
 import com.example.moviesapp.domain.usecase.GetPopularMoviesUseCase
 import com.example.moviesapp.factory.FakeMoviesFactory.makeFakeMovies
 import com.example.moviesapp.factory.FakeMoviesFactory.makeFakePresentationMovies
+import com.example.moviesapp.presentation.list.event.MoviesEvent.OpenMoviesEvent
 import com.example.moviesapp.presentation.list.state.MoviesState
 import com.example.moviesapp.presentation.mapper.PresentationMovieMapper
 import com.example.moviesapp.presentation.model.PresentationMovie
@@ -33,27 +34,27 @@ class MoviesViewModelTest {
     )
 
     @Test
-    fun `given movies by use case, when getPopularMovies, then expose FilledMoviesState`() =
+    fun `given movies by use case, when process OpenMoviesEvent, then expose FilledMoviesState`() =
         coroutinesTestRule.testDispatcher.runBlockingTest {
             val fakeMovies = makeFakeMovies(5)
             stubMoviesInUseCase(fakeMovies)
             val fakePresentationMovies = makeFakePresentationMovies(5)
             stubToPresentationMapper(fakePresentationMovies)
 
-            viewModel.getPopularMovies()
+            viewModel.processEvent(OpenMoviesEvent)
 
             assert(viewModel.stateFlow.value is MoviesState.FilledMoviesState)
         }
 
     @Test
-    fun `given empty movies list by use case, when getPopularMovies, then expose EmptyMoviesState`() =
+    fun `given empty movies list by use case, when process OpenMoviesEvent, then expose EmptyMoviesState`() =
         coroutinesTestRule.testDispatcher.runBlockingTest {
             val fakeMovies = makeFakeMovies(0)
             stubMoviesInUseCase(fakeMovies)
             val fakePresentationMovies = makeFakePresentationMovies(0)
             stubToPresentationMapper(fakePresentationMovies)
 
-            viewModel.getPopularMovies()
+            viewModel.processEvent(OpenMoviesEvent)
 
             assert(viewModel.stateFlow.value is MoviesState.EmptyMoviesState)
         }
@@ -67,11 +68,11 @@ class MoviesViewModelTest {
     }
 
     @Test
-    fun `given exception by use case, when getPopularMovies, then expose FailureState`() =
+    fun `given exception by use case, when process OpenMoviesEvent, then expose FailureState`() =
         coroutinesTestRule.testDispatcher.runBlockingTest {
             stubErrorInUseCase()
 
-            viewModel.getPopularMovies()
+            viewModel.processEvent(OpenMoviesEvent)
 
             assert(viewModel.stateFlow.value is MoviesState.FailureState)
         }
