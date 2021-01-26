@@ -3,6 +3,7 @@ package com.example.moviesapp.domain.usecase
 import com.example.moviesapp.factory.FakeMoviesFactory.makeFakeMovie
 import com.example.moviesapp.domain.model.Movie
 import com.example.moviesapp.domain.repository.MoviesRepository
+import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
@@ -22,7 +23,7 @@ class GetMovieByIdUseCaseTest {
 
         val movie = useCase(fakeId)
 
-        assert(fakeMovie == movie)
+        fakeMovie shouldBe movie
     }
 
     private fun stubRepository(movie: Movie) {

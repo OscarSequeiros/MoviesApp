@@ -11,6 +11,7 @@ import com.example.moviesapp.factory.FakeMoviesFactory.makeFakeLocalMovies
 import com.example.moviesapp.factory.FakeMoviesFactory.makeFakeMovie
 import com.example.moviesapp.factory.FakeMoviesFactory.makeFakeMovies
 import com.example.moviesapp.factory.FakeMoviesFactory.makeFakeRemoteMovies
+import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
@@ -42,7 +43,7 @@ class MoviesDataRepositoryTest {
 
         val movie = dataRepository.getMovieById(fakeMovieId)
 
-        assert(fakeMovie == movie)
+        fakeMovie shouldBe movie
     }
 
     private fun stubMovieInLocalSource(localMovie: LocalMovie) {
@@ -54,23 +55,21 @@ class MoviesDataRepositoryTest {
     }
 
     @Test
-    fun `given remoteMovies by remoteSource, when getPopularMovies, then save them in localSource and return`() = runBlocking {
-        val fakeRemoteMovies = makeFakeRemoteMovies()
-        stubRemoteSource(fakeRemoteMovies)
-        val fakeLocalMovies = makeFakeLocalMovies()
-        stubToLocalMapper(fakeLocalMovies)
-        stubMoviesInLocalSource(fakeLocalMovies)
-        val fakeMovies = makeFakeMovies()
-        stubToDomainMapper(fakeMovies)
+    fun `given remoteMovies by remoteSource, when getPopularMovies, then save them in localSource and return`() =
+        runBlocking {
+            val fakeRemoteMovies = makeFakeRemoteMovies()
+            stubRemoteSource(fakeRemoteMovies)
+            val fakeLocalMovies = makeFakeLocalMovies()
+            stubToLocalMapper(fakeLocalMovies)
+            stubMoviesInLocalSource(fakeLocalMovies)
+            val fakeMovies = makeFakeMovies()
+            stubToDomainMapper(fakeMovies)
 
-        val moviesFlow = dataRepository.getPopularMovies()
+            val moviesFlow = dataRepository.getPopularMovies()
 
-        moviesFlow.collect { movies ->
-            assert(fakeMovies == movies)
+            moviesFlow.collect { movies -> fakeMovies shouldBe movies }
+            coVerify(exactly = 1) { localSource.insertMovies(fakeLocalMovies) }
         }
-
-        coVerify(exactly = 1) { localSource.insertMovies(fakeLocalMovies) }
-    }
 
     private fun stubRemoteSource(remoteMovies: List<RemoteMovie>) {
         coEvery { remoteSource.getPopularMovies() } coAnswers { remoteMovies }
@@ -81,21 +80,19 @@ class MoviesDataRepositoryTest {
     }
 
     @Test
-    fun `given exception by remoteSource, when getPopularMovies, then get the previous saved list`() = runBlocking {
-        stubExceptionInRemoteSource()
-        val fakeLocalMovies = makeFakeLocalMovies(2)
-        stubMoviesInLocalSource(fakeLocalMovies)
-        val fakeMovies = makeFakeMovies()
-        stubToDomainMapper(fakeMovies)
+    fun `given exception by remoteSource, when getPopularMovies, then get the previous saved list`() =
+        runBlocking {
+            stubExceptionInRemoteSource()
+            val fakeLocalMovies = makeFakeLocalMovies(2)
+            stubMoviesInLocalSource(fakeLocalMovies)
+            val fakeMovies = makeFakeMovies()
+            stubToDomainMapper(fakeMovies)
 
-        val moviesFlow = dataRepository.getPopularMovies()
+            val moviesFlow = dataRepository.getPopularMovies()
 
-        moviesFlow.collect { movies ->
-            assert(fakeMovies == movies)
+            moviesFlow.collect { movies -> fakeMovies shouldBe movies }
+            coVerify(exactly = 0) { localSource.insertMovies(any()) }
         }
-
-        coVerify(exactly = 0) { localSource.insertMovies(any()) }
-    }
 
     private fun stubExceptionInRemoteSource() {
         coEvery { remoteSource.getPopularMovies() } coAnswers { error("") }

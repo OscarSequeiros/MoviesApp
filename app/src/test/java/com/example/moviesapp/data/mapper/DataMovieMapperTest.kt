@@ -6,6 +6,7 @@ import com.example.moviesapp.domain.model.Movie
 import com.example.moviesapp.factory.FakeMoviesFactory.makeFakeLocalMovie
 import com.example.moviesapp.factory.FakeMoviesFactory.makeFakeLocalMovies
 import com.example.moviesapp.factory.FakeMoviesFactory.makeFakeRemoteMovies
+import io.kotest.matchers.shouldBe
 import org.junit.Test
 
 class DataMovieMapperTest {
@@ -32,13 +33,13 @@ class DataMovieMapperTest {
     }
 
     private fun assertAllFields(localMovie: LocalMovie, movie: Movie) {
-        assert(localMovie.id == movie.id)
-        assert(localMovie.title == movie.title)
-        assert(localMovie.overview == movie.overview)
-        assert(localMovie.isOnlyForAdults == movie.isOnlyForAdults)
-        assert(localMovie.posterUrl == movie.posterUrl)
-        assert(localMovie.voteAverage == movie.voteAverage)
-        assert(localMovie.releaseDate == movie.releaseDate)
+        localMovie.id shouldBe movie.id
+        localMovie.title shouldBe movie.title
+        localMovie.overview shouldBe movie.overview
+        localMovie.isOnlyForAdults shouldBe movie.isOnlyForAdults
+        localMovie.posterUrl shouldBe movie.posterUrl
+        localMovie.voteAverage shouldBe movie.voteAverage
+        localMovie.releaseDate shouldBe movie.releaseDate
     }
 
     @Test
@@ -52,12 +53,12 @@ class DataMovieMapperTest {
     }
 
     private fun assertAllFields(remoteMovie: RemoteMovie, localMovie: LocalMovie) {
-        assert(remoteMovie.id == localMovie.id)
-        assert(remoteMovie.title == localMovie.title)
-        assert(remoteMovie.overview == localMovie.overview)
-        assert(remoteMovie.adult == localMovie.isOnlyForAdults)
-        assert(remoteMovie.poster_path == localMovie.posterUrl)
-        assert(remoteMovie.vote_average == localMovie.voteAverage)
-        assert(remoteMovie.release_date == localMovie.releaseDate)
+        remoteMovie.id shouldBe localMovie.id
+        remoteMovie.title shouldBe localMovie.title
+        remoteMovie.overview shouldBe localMovie.overview
+        remoteMovie.adult shouldBe localMovie.isOnlyForAdults
+        remoteMovie.poster_path shouldBe localMovie.posterUrl
+        remoteMovie.vote_average shouldBe localMovie.voteAverage
+        remoteMovie.release_date shouldBe localMovie.releaseDate
     }
 }
