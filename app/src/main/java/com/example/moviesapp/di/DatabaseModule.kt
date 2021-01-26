@@ -26,7 +26,11 @@ class DatabaseModule {
         return Room.databaseBuilder(
             appContext,
             MoviesAppDataBase::class.java,
-            "MoviesApp"
+            DATABASE_NAME
         ).build()
+    }
+
+    companion object {
+        const val DATABASE_NAME = "MoviesApp"
     }
 }
