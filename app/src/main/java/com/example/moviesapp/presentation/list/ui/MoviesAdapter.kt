@@ -1,10 +1,8 @@
-package com.example.moviesapp.presentation.ui
+package com.example.moviesapp.presentation.list.ui
 
 import android.view.LayoutInflater.from
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
-import com.example.moviesapp.R
 import com.example.moviesapp.databinding.ItemMovieBinding
 import com.example.moviesapp.presentation.model.PresentationMovie
 import javax.inject.Inject

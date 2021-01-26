@@ -1,4 +1,4 @@
-package com.example.moviesapp.presentation.ui
+package com.example.moviesapp.presentation.list.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,10 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.moviesapp.databinding.FragmentMoviesBinding
-import com.example.moviesapp.presentation.MoviesState
-import com.example.moviesapp.presentation.MoviesState.*
+import com.example.moviesapp.presentation.list.state.MoviesState
+import com.example.moviesapp.presentation.list.state.MoviesState.*
 import com.example.moviesapp.presentation.model.PresentationMovie
-import com.example.moviesapp.presentation.viewmodel.MoviesViewModel
+import com.example.moviesapp.presentation.list.viewmodel.MoviesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
