@@ -18,6 +18,7 @@ class PresentationMovieMapper @Inject constructor() {
             posterUrl = movie.posterUrl,
             isOnlyForAdults = movie.isOnlyForAdults,
             voteAverage = movie.voteAverage.toString(),
+            releaseDate = movie.releaseDate,
         )
     }
 }

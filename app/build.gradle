@@ -72,14 +72,19 @@ dependencies {
 
     implementation PersistenceLibraries.room
     implementation PersistenceLibraries.roomKtx
+    kapt PersistenceLibraries.kaptRoomCompiler
 
     implementation NavigationLibraries.navigationFragment
     implementation NavigationLibraries.navigationUi
 
-    kapt PersistenceLibraries.kaptRoomCompiler
+    implementation LoggingLibraries.timber
 
     testImplementation TestLibraries.jUnit
+    testImplementation TestLibraries.mockk
+    testImplementation TestLibraries.coroutines
+    testImplementation TestLibraries.kotest
 
     androidTestImplementation TestAndroidLibraries.androidJUnit
     androidTestImplementation TestAndroidLibraries.espresso
+    androidTestImplementation TestAndroidLibraries.archCore
 }

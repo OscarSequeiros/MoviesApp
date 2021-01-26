@@ -18,13 +18,13 @@ class MoviesRemoteSource @Inject constructor() {
         defaultRequest {
             url {
                 protocol = URLProtocol.HTTPS
-                host = "api.themoviedb.org"
-                encodedPath = "/3" + url.encodedPath
+                host = HOST
+                encodedPath = VERSION + url.encodedPath
             }
         }
         engine {
             endpoint {
-                connectTimeout = 20_000
+                connectTimeout = TIMEOUT_MILLIS
             }
         }
         install(JsonFeature) {
@@ -37,8 +37,8 @@ class MoviesRemoteSource @Inject constructor() {
     }
 
     suspend fun getPopularMovies(): List<RemoteMovie> {
-        val response: RemoteMoviesResponse = client.get("movie/popular") {
-            parameter("api_key", BuildConfig.APP_KEY)
+        val response: RemoteMoviesResponse = client.get(MOVIE_POPULAR_URL) {
+            parameter(API_KEY_PARAM, BuildConfig.APP_KEY)
         }
 
         return response
@@ -47,6 +47,11 @@ class MoviesRemoteSource @Inject constructor() {
     }
 
     companion object {
+        const val HOST = "api.themoviedb.org"
+        const val VERSION = "/3"
         const val BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w400"
+        const val API_KEY_PARAM = "api_key"
+        const val MOVIE_POPULAR_URL = "movie/popular"
+        const val TIMEOUT_MILLIS = 20_000L
     }
 }

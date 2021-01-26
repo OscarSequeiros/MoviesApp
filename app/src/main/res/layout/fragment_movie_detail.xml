@@ -6,27 +6,44 @@
     android:layout_height="match_parent"
     android:background="@color/background">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_poster"
+    <TextView
+        android:id="@+id/text_details_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.12" />
+        android:layout_marginTop="@dimen/padding_item"
+        android:fontFamily="@font/lato_bold"
+        android:text="@string/details"
+        android:textColor="@color/white"
+        android:textSize="@dimen/heading_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/image_play"
+        android:layout_width="@dimen/play_size"
+        android:layout_height="@dimen/play_size"
+        android:layout_marginTop="@dimen/detail_poster_vertical_margin"
+        android:contentDescription="@string/tab_to_play"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_details_label"
+        app:srcCompat="@drawable/ic_play" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_image_container"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/poster_start_margin"
-        android:layout_marginTop="@dimen/vertical_item_margin"
+        android:layout_marginTop="@dimen/detail_poster_vertical_margin"
         android:layout_marginBottom="@dimen/vertical_item_margin"
         app:cardCornerRadius="@dimen/poster_item_radius"
         app:layout_constraintStart_toStartOf="@+id/constraint_background"
-        app:layout_constraintTop_toBottomOf="@+id/guideline_poster">
+        app:layout_constraintTop_toBottomOf="@+id/image_play">
 
         <ImageView
             android:id="@+id/image_poster"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:contentDescription="@string/movie_poster"
@@ -56,10 +73,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/poster_start_margin"
         android:layout_marginTop="@dimen/vertical_title_margin"
+        android:layout_marginEnd="@dimen/poster_start_margin"
         android:fontFamily="@font/lato_bold"
         android:textColor="@color/white"
         android:textSize="@dimen/title_size"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/constraint_background"
         app:layout_constraintStart_toEndOf="@+id/card_image_container"
         app:layout_constraintTop_toTopOf="@+id/constraint_background"
         tools:text="Interstellar" />
@@ -95,6 +113,7 @@
         android:layout_marginTop="@dimen/overview_item_vertical_margin"
         android:fontFamily="@font/lato_regular"
         android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/constraint_background"
         app:layout_constraintStart_toStartOf="@+id/text_title"
         app:layout_constraintTop_toBottomOf="@+id/image_rating"
         tools:text="Sep 2020" />
@@ -132,10 +151,9 @@
         android:layout_marginStart="@dimen/poster_start_margin"
         android:layout_marginTop="@dimen/overview_item_vertical_margin"
         android:layout_marginEnd="@dimen/poster_start_margin"
-        android:fontFamily="@font/lato_regular"
-        android:text="@string/introduce"
+        android:fontFamily="@font/lato_italic"
         android:textColor="@color/white"
-        android:textSize="@dimen/title_size"
+        android:textSize="@dimen/subtitle_size"
         app:layout_constraintEnd_toEndOf="@+id/constraint_background"
         app:layout_constraintStart_toStartOf="@+id/constraint_background"
         app:layout_constraintTop_toBottomOf="@+id/text_overview_label"

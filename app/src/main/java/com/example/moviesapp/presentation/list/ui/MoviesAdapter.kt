@@ -8,16 +8,15 @@ import com.example.moviesapp.R
 import com.example.moviesapp.databinding.ItemMovieBinding
 import com.example.moviesapp.presentation.model.PresentationMovie
 import javax.inject.Inject
+import kotlin.properties.Delegates
 
 class MoviesAdapter @Inject constructor(
     private val clickListener: (movieId: Long) -> Unit
 ) : RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
 
-    var movies: List<PresentationMovie> = emptyList()
-        set(value)  {
-            field = value
-            notifyDataSetChanged()
-        }
+    var movies: List<PresentationMovie> by Delegates.observable(emptyList()) { _, _, _ ->
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val binding = ItemMovieBinding.inflate(from(parent.context), parent, false)
@@ -36,11 +35,16 @@ class MoviesAdapter @Inject constructor(
         fun bind(movie: PresentationMovie) = with(binding) {
             textTitle.text = movie.title
             textOverview.text = movie.overview
-            imagePoster.setOnClickListener { clickListener.invoke(movie.id) }
-            imagePoster.load(movie.posterUrl) {
-                placeholder(R.drawable.ic_cinema)
-            }
+            constraintContainer.setOnClickListener { clickListener.invoke(movie.id) }
+            loadImage(movie.posterUrl)
             textRating.text = movie.voteAverage
+        }
+
+        private fun ItemMovieBinding.loadImage(posterUrl: String?) {
+            imagePoster.load(posterUrl) {
+                placeholder(R.drawable.movie_placeholder)
+                error(R.drawable.movie_placeholder)
+            }
         }
     }
 }

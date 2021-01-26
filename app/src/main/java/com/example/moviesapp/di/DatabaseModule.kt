@@ -2,8 +2,8 @@ package com.example.moviesapp.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.moviesapp.data.local.MovieDao
-import com.example.moviesapp.data.local.MoviesAppDataBase
+import com.example.moviesapp.data.local.dao.MovieDao
+import com.example.moviesapp.data.local.database.MoviesAppDataBase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -26,7 +26,11 @@ class DatabaseModule {
         return Room.databaseBuilder(
             appContext,
             MoviesAppDataBase::class.java,
-            "MoviesApp"
+            DATABASE_NAME
         ).build()
+    }
+
+    companion object {
+        const val DATABASE_NAME = "MoviesApp"
     }
 }

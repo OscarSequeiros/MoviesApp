@@ -20,20 +20,17 @@ class MoviesViewModel @ViewModelInject constructor(
     val stateFlow: StateFlow<MoviesState>
         get() = _stateFlow
 
-    init {
+    fun getPopularMovies() {
         getMoviesUseCase()
             .map { movies -> mapper.toPresentation(movies) }
-            .map { movies -> movies.defineState() }
+            .map { movies -> movies.toState() }
             .onStart { emit(LoadingState) }
-            .catch { error ->
-                error.printStackTrace()
-                emit(FailureState)
-            }
+            .catch { error -> emit(FailureState(error)) }
             .onEach { state -> _stateFlow.value = state }
             .launchIn(viewModelScope)
     }
 
-    private fun List<PresentationMovie>.defineState(): MoviesState {
+    private fun List<PresentationMovie>.toState(): MoviesState {
         return if (isEmpty()) EmptyMoviesState else FilledMoviesState(this)
     }
 }

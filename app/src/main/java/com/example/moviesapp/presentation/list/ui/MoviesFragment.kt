@@ -16,6 +16,7 @@ import com.example.moviesapp.presentation.model.PresentationMovie
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 @AndroidEntryPoint
 class MoviesFragment : Fragment() {
@@ -43,6 +44,7 @@ class MoviesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         observeStates()
         setupAdapter()
+        viewModel.getPopularMovies()
     }
 
     private fun observeStates() {
@@ -58,24 +60,20 @@ class MoviesFragment : Fragment() {
     }
 
     private fun render(state: MoviesState) {
-        when(state) {
-            is IdleState -> showIdleState()
+        when (state) {
             is LoadingState -> showLoading()
-            is FailureState -> showFailure()
+            is FailureState -> showFailure(state.error)
             is EmptyMoviesState -> showEmptyMovies()
             is FilledMoviesState -> showMovies(state.movies)
         }
-    }
-
-    private fun showIdleState() {
-
     }
 
     private fun showLoading() {
         binding?.progressLoading?.visibility = View.VISIBLE
     }
 
-    private fun showFailure() {
+    private fun showFailure(error: Throwable) {
+        Timber.d(error)
         binding?.progressLoading?.visibility = View.GONE
         binding?.imageFailure?.visibility = View.VISIBLE
     }

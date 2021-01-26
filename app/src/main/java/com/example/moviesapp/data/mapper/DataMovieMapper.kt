@@ -19,14 +19,15 @@ class DataMovieMapper @Inject constructor() {
             posterUrl = movie.posterUrl,
             isOnlyForAdults = movie.isOnlyForAdults,
             voteAverage = movie.voteAverage,
+            releaseDate = movie.releaseDate,
         )
     }
 
     fun toLocal(movies: List<RemoteMovie>): List<LocalMovie> {
-        return movies.map { movie -> toDomain(movie) }
+        return movies.map { movie -> toLocal(movie) }
     }
 
-    private fun toDomain(movie: RemoteMovie): LocalMovie {
+    private fun toLocal(movie: RemoteMovie): LocalMovie {
         return LocalMovie(
             id = movie.id,
             title = movie.title,
@@ -34,6 +35,7 @@ class DataMovieMapper @Inject constructor() {
             posterUrl = movie.poster_path,
             isOnlyForAdults = movie.adult,
             voteAverage = movie.vote_average,
+            releaseDate = movie.release_date,
         )
     }
 }
