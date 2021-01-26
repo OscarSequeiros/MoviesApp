@@ -4,7 +4,7 @@ API: https://www.themoviedb.org/documentation/api
 
 ## Getting Started
 Default branch
-````bash
+```bash
 main
 ```
 
