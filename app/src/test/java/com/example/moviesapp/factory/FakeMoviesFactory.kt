@@ -62,7 +62,7 @@ object FakeMoviesFactory {
         return (0..count).map { makeFakePresentationMovie() }
     }
 
-    private fun makeFakePresentationMovie(): PresentationMovie {
+    fun makeFakePresentationMovie(): PresentationMovie {
         return PresentationMovie(
             id = generateRandomLong(),
             title = generateRandomString(),
