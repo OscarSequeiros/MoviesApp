@@ -9,8 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import com.example.moviesapp.databinding.FragmentMoviesBinding
-import com.example.moviesapp.presentation.list.event.MoviesEvent
-import com.example.moviesapp.presentation.list.event.MoviesEvent.*
+import com.example.moviesapp.presentation.list.event.MoviesEvent.OpenMoviesEvent
 import com.example.moviesapp.presentation.list.state.MoviesState
 import com.example.moviesapp.presentation.list.state.MoviesState.*
 import com.example.moviesapp.presentation.list.viewmodel.MoviesViewModel
