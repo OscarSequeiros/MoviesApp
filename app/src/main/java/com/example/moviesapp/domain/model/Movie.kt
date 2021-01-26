@@ -6,5 +6,6 @@ data class Movie(
         val overview: String,
         val posterUrl: String?,
         val isOnlyForAdults: Boolean,
-        val voteAverage: Double
+        val voteAverage: Double,
+        val releaseDate: String,
 )

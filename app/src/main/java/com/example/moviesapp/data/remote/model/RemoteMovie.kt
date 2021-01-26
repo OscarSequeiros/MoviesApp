@@ -6,5 +6,6 @@ data class RemoteMovie(
         val overview: String,
         val poster_path: String,
         val adult: Boolean,
-        val vote_average: Double
+        val vote_average: Double,
+        val release_date: String,
 )

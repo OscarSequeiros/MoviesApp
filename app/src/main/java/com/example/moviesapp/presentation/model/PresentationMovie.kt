@@ -7,4 +7,5 @@ data class PresentationMovie(
     val posterUrl: String?,
     val isOnlyForAdults: Boolean,
     val voteAverage: String,
+    val releaseDate: String,
 )

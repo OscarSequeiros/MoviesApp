@@ -59,7 +59,7 @@
         android:fontFamily="@font/lato_bold"
         android:textColor="@color/white"
         android:textSize="@dimen/title_size"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/constraint_background"
         app:layout_constraintStart_toEndOf="@+id/card_image_container"
         app:layout_constraintTop_toTopOf="@+id/constraint_background"
         tools:text="Interstellar" />
@@ -96,6 +96,7 @@
         android:fontFamily="@font/lato_regular"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="@+id/text_title"
+        app:layout_constraintEnd_toEndOf="@+id/constraint_background"
         app:layout_constraintTop_toBottomOf="@+id/image_rating"
         tools:text="Sep 2020" />
 
@@ -133,9 +134,8 @@
         android:layout_marginTop="@dimen/overview_item_vertical_margin"
         android:layout_marginEnd="@dimen/poster_start_margin"
         android:fontFamily="@font/lato_regular"
-        android:text="@string/introduce"
         android:textColor="@color/white"
-        android:textSize="@dimen/title_size"
+        android:textSize="@dimen/subtitle_size"
         app:layout_constraintEnd_toEndOf="@+id/constraint_background"
         app:layout_constraintStart_toStartOf="@+id/constraint_background"
         app:layout_constraintTop_toBottomOf="@+id/text_overview_label"

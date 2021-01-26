@@ -81,6 +81,7 @@ class MovieDetailFragment : Fragment() {
             textTitle.text = movie.title
             textOverview.text = movie.overview
             textRating.text = movie.voteAverage
+            textReleaseDate.text = movie.releaseDate
         }
     }
 
