@@ -9,28 +9,33 @@ import com.example.moviesapp.data.local.database.MoviesAppDataBase
 import com.example.moviesapp.data.local.model.LocalMovie
 import com.example.moviesapp.factory.FakeMovieFactory.makeFakeLocalMovie
 import com.example.moviesapp.factory.FakeMovieFactory.makeFakeLocalMovies
+import dagger.hilt.android.testing.HiltAndroidRule
+import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.runBlocking
 import org.junit.*
 import org.junit.runner.RunWith
+import javax.inject.Inject
+import javax.inject.Named
 
-@RunWith(AndroidJUnit4::class)
 @SmallTest
+@HiltAndroidTest
 class MovieDaoTest {
+
+    @get:Rule
+    var hiltRule = HiltAndroidRule(this)
 
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
-    private lateinit var database: MoviesAppDataBase
+    @Inject
+    @Named("test_db")
+    lateinit var database: MoviesAppDataBase
     private lateinit var dao: MovieDao
 
     @Before
     fun setup() {
-        database = Room.inMemoryDatabaseBuilder(
-            ApplicationProvider.getApplicationContext(),
-            MoviesAppDataBase::class.java
-        ).allowMainThreadQueries().build()
-
+        hiltRule.inject()
         dao = database.movieDao()
     }
 
