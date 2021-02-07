@@ -114,3 +114,11 @@ object TestAndroidLibraries {
     const val archCore = "androidx.arch.core:core-testing:${Versions.archCore}"
     const val hilt = "com.google.dagger:hilt-android-testing:${Versions.hilt}"
 }
+
+object DebugLibraries {
+    object Versions {
+        const val fragmentTesting = "1.3.0-alpha08"
+    }
+
+    const val fragmentTesting = "androidx.fragment:fragment-testing:${Versions.fragmentTesting}"
+}
