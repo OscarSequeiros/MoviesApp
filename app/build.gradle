@@ -87,4 +87,6 @@ dependencies {
     androidTestImplementation TestAndroidLibraries.androidJUnit
     androidTestImplementation TestAndroidLibraries.espresso
     androidTestImplementation TestAndroidLibraries.archCore
+    androidTestImplementation TestAndroidLibraries.hilt
+    kaptAndroidTest DILibraries.kaptHilt
 }
