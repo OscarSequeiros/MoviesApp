@@ -5,12 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import coil.load
 import com.example.moviesapp.R
 import com.example.moviesapp.databinding.FragmentMovieDetailBinding
+import com.example.moviesapp.di.provideViewModel
 import com.example.moviesapp.presentation.detail.event.MovieDetailEvent.OpenMovieDetailsEvent
 import com.example.moviesapp.presentation.detail.state.MovieDetailState
 import com.example.moviesapp.presentation.detail.state.MovieDetailState.*
@@ -26,7 +26,7 @@ class MovieDetailFragment : Fragment() {
 
     private var binding: FragmentMovieDetailBinding? = null
 
-    private val viewModel: MovieDetailViewModel by viewModels()
+    private val viewModel: MovieDetailViewModel by provideViewModel()
 
     private val args: MovieDetailFragmentArgs by navArgs()
 

@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import com.example.moviesapp.databinding.FragmentMoviesBinding
+import com.example.moviesapp.di.provideViewModel
 import com.example.moviesapp.presentation.list.event.MoviesEvent.OpenMoviesEvent
 import com.example.moviesapp.presentation.list.state.MoviesState
 import com.example.moviesapp.presentation.list.state.MoviesState.*
@@ -24,7 +24,7 @@ class MoviesFragment : Fragment() {
 
     private var binding: FragmentMoviesBinding? = null
 
-    private val viewModel: MoviesViewModel by viewModels()
+    private val viewModel: MoviesViewModel by provideViewModel()
 
     private val adapter = MoviesAdapter { movieId ->
         val direction = MoviesFragmentDirections.actionToDetail(movieId)

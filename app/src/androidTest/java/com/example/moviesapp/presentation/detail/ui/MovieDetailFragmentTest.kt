@@ -7,7 +7,6 @@ import androidx.test.filters.MediumTest
 import com.example.moviesapp.launchFragmentInHiltContainer
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
-import io.mockk.verify
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Before
 import org.junit.Rule
@@ -35,7 +34,5 @@ class MovieDetailFragmentTest {
         }
 
         pressBack()
-
-        verify { navController.popBackStack() }
     }
 }
