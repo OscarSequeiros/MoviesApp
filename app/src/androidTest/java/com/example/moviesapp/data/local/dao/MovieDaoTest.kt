@@ -1,12 +1,8 @@
 package com.example.moviesapp.data.local.dao
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.room.Room
-import androidx.test.core.app.ApplicationProvider
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SmallTest
 import com.example.moviesapp.data.local.database.MoviesAppDataBase
-import com.example.moviesapp.data.local.model.LocalMovie
 import com.example.moviesapp.factory.FakeMovieFactory.makeFakeLocalMovie
 import com.example.moviesapp.factory.FakeMovieFactory.makeFakeLocalMovies
 import dagger.hilt.android.testing.HiltAndroidRule
@@ -14,7 +10,6 @@ import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.runBlocking
 import org.junit.*
-import org.junit.runner.RunWith
 import javax.inject.Inject
 import javax.inject.Named
 
