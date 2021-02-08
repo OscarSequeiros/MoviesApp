@@ -107,12 +107,14 @@ object TestAndroidLibraries {
         const val androidEspresso = "3.3.0"
         const val archCore = "2.1.0"
         const val hilt = "2.28-alpha"
+        const val mockito = "3.7.7"
     }
 
     const val androidJUnit = "androidx.test.ext:junit:${Versions.androidJUnit}"
     const val espresso = "androidx.test.espresso:espresso-core:${Versions.androidEspresso}"
     const val archCore = "androidx.arch.core:core-testing:${Versions.archCore}"
     const val hilt = "com.google.dagger:hilt-android-testing:${Versions.hilt}"
+    const val mockito = "org.mockito:mockito-android:${Versions.mockito}"
 }
 
 object DebugLibraries {
