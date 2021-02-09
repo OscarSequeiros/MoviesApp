@@ -79,6 +79,8 @@ dependencies {
 
     implementation LoggingLibraries.timber
 
+    implementation KotlinLibraries.kotlinReflect
+
     testImplementation TestLibraries.jUnit
     testImplementation TestLibraries.mockk
     testImplementation TestLibraries.coroutines
