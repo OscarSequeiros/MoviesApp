@@ -5,6 +5,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
+import kotlin.reflect.KProperty1
+import kotlin.reflect.jvm.isAccessible
 
 inline fun <reified VM : ViewModel> Fragment.provideViewModel(
     noinline ownerProducer: () -> ViewModelStoreOwner = { this },
@@ -17,4 +19,11 @@ class OverridableLazy<T>(var implementation: Lazy<T>): Lazy<T> {
         get() = implementation.value
 
     override fun isInitialized(): Boolean = implementation.isInitialized()
+}
+
+fun <VM: ViewModel, T> T.replace(
+    viewModelDelegate: KProperty1<T, VM>, viewModel: VM) {
+    viewModelDelegate.isAccessible = true
+    (viewModelDelegate.getDelegate(this) as
+            OverridableLazy<VM>).implementation = lazy { viewModel }
 }
