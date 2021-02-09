@@ -26,7 +26,7 @@ class MovieDetailFragment : Fragment() {
 
     private var binding: FragmentMovieDetailBinding? = null
 
-    private val viewModel: MovieDetailViewModel by provideViewModel()
+    val viewModel: MovieDetailViewModel by provideViewModel()
 
     private val args: MovieDetailFragmentArgs by navArgs()
 

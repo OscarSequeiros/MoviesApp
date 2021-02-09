@@ -24,7 +24,7 @@ class MoviesFragment : Fragment() {
 
     private var binding: FragmentMoviesBinding? = null
 
-    private val viewModel: MoviesViewModel by provideViewModel()
+    val viewModel: MoviesViewModel by provideViewModel()
 
     private val adapter = MoviesAdapter { movieId ->
         val direction = MoviesFragmentDirections.actionToDetail(movieId)
